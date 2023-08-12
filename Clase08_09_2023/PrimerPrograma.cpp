@@ -8,8 +8,9 @@ float base, altu, area; // variables para el calculo del area del triangulo, flo
 
 // Un flujo es una secuencia de datos, un flujo de entrada es una secuencia de datos que se reciben, un flujo de salida es una secuencia de datos que se envian
 //definicion del programa principal
-main()
-{2
+int main() // Añadido 'int' antes de 'main'
+{
+
 
     cout << "Ingrese la base del triangulo: "<< endl; // cout es un objeto de la clase ostream, << es un operador de insercion, inserccion es la accion de enviar datos a un flujo
     cin >> base; // cin es un objeto de la clase istream, >> es un operador de extraccion, extraccion es la accion de recibir datos de un flujo
@@ -18,4 +19,6 @@ main()
     area = (base * altu) / 2; // area del triangulo
     cout << "El area del triangulo es: " << area << endl;// endl es un manipulador de flujo, manipulador de flujo es un objeto que modifica el comportamiento de un flujo
     system("pause"); // pausa el programa
+
+    return 0; // Añadido un valor de retorno
 }
