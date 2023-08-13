@@ -42,7 +42,7 @@ int main()
     {
         cout << "Los datos se escribieron en forma descendente." << endl;
     }
-   3 else
+    else
     {
         cout << "Los datos no se escribieron en forma ordenada." << endl;
     }
