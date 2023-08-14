@@ -11,6 +11,8 @@ mostrar en pantalla su cubo. Validar que el número no sea mayor que
 */
 //Librerías
 #include <iostream>
+#include <iostream>
+#include <iostream>
 using namespace std;
 // Variables Globales
 int numero; //< Valor de entrada.
