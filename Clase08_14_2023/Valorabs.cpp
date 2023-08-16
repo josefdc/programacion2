@@ -1,3 +1,9 @@
+/**
+ * @file Valorabs.cpp
+ * @brief Este programa calcula el valor absoluto de un número ingresado por el usuario.
+ * @param numero El número ingresado por el usuario.
+ * @return El valor absoluto del número ingresado.
+ */
 /*
 Elaborar un programa que permita calcular un numero y devolver su valor absoluto
 */

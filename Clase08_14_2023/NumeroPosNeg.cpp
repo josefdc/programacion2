@@ -1,7 +1,8 @@
 /*
-Elabaroar un numero que determine si un numero es negativo o positivo
+Este programa determina si un número ingresado por el usuario es positivo o negativo.
+Si el número es mayor o igual a cero, se considera positivo y se muestra un mensaje en pantalla.
+De lo contrario, se considera negativo y se muestra un mensaje en pantalla.
 */
-
 #include<iostream>
 using namespace std;
 
@@ -9,14 +10,14 @@ int numero;
 
 int main()
 {
-    cout << "ingrese el numero --->";
+    cout << "Ingrese el número --->";
     cin >> numero;
     if (numero >= 0)
     {
-        cout << "el numero es positivo";
+        cout << "El número es positivo";
     }
     else
     {
-        cout << "el numero es negativo";
+        cout << "El número es negativo";
     }
 }
