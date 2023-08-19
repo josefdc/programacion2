@@ -1,0 +1,25 @@
+# Archivo .gitignore para proyectos en C++
+
+# Ignorar archivos binarios
+*.exe
+*.out
+*.o
+*.obj
+
+# Ignorar directorios de compilación
+Debug/
+Release/
+build/
+
+# Archivos de configuración específicos de IDEs
+*.user
+*.suo
+*.sdf
+*.vcxproj
+*.vcxproj.filters
+
+# Otros
+*.log
+*.bak
+
+.vscode/
