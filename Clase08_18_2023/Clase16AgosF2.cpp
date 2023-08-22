@@ -1,3 +1,11 @@
+/**
+ * @brief Programa para leer tres números y escribir un mensaje si los datos se escribieron en forma ordenada (ya sea descendente o ascendentemente) y si no es así que muestre el respectivo mensaje.
+ * @file orden.cpp
+ * @version 1.0
+ * @date 08/08/2023
+ *  
+*/
+
 #include <stdio.h>
 #include <math.h>
 
