@@ -9,7 +9,10 @@ void mostrarMenu();
 void tablaMultiplicar(int n, int i);
 void todasLasTablasHastaN(int n);
 void imprimirTablas(int current, int n);
-void sumatoria(int n);
+int sumatoria(int n);
+int factorial(int x);
+int sumatoriaExpresion(int n);
+
 
 int main()
 {
@@ -26,7 +29,9 @@ void mostrarMenu()
     printf("3. Tabla de multiplicar de un numero\n");
     printf("4. Todas las tablas de multiplicar hasta N\n");
     printf("5. Sumatoria de los numeros enteros hasta N\n");
-    printf("Seleccione una opcion (1-5)?\n");
+    printf("6. Factorial de N\n");
+    printf("7. Sumatoria de los numeros dados por la expresion x^x para todos los numeros entre 1 y N\n");
+    printf("Seleccione una opcion (1-6)?\n");
     scanf("%d", &opcion);
 
     int n;
@@ -60,7 +65,16 @@ void mostrarMenu()
             scanf("%d", &n);
             sumatoria(n);
             break;
-
+        case 6:
+            printf("6.Introduce el numero N para mostrar el factorial de N: ");
+            scanf("%d", &n);
+            factorial(n);
+            break;
+        case 7:
+            printf("7.Introduce el numero N para mostrar la sumatoria de los numeros dados por la expresion x^x para todos los numeros entre 1 y N: ");
+            scanf("%d", &n);
+            sumatoriaExpresion(n);
+            break;
         default:
             printf("Opcion no valida.\n");
             break;
@@ -110,12 +124,111 @@ void imprimirTablas(int current, int n)
 
 //hacer una funcion que devuelva la sumatoria para los numeros enteros hasta N
 
-void sumatoria(int n)
+
+int sumatoria(int n)
 {
     if (n == 0)
     {
+        return 0;
+    }
+    else
+    {
+        int resultado = n + sumatoria(n - 1);
+        printf("La sumatoria de los numeros enteros hasta %d es: %d\n", n, resultado);
+        return resultado;
+    }
+}
+
+// hacer una funcion que devuelva el factorial de x
+
+int factorial(int x)
+{
+    if (x == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        int resultado = x * factorial(x - 1);
+        printf("El factorial de %d es: %d\n", x, resultado);
+        return resultado;
+    }
+}
+// Hacer una funcion que devuelva la sumatoria de los numeros dados por la expresion x^x para todos los numeros entre 1 y n
+
+int sumatoriaExpresion(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    else
+    {
+        int resultado = pow(n, n) + sumatoriaExpresion(n - 1);
+        printf("La sumatoria de los numeros dados por la expresion x^x para todos los numeros entre 1 y %d es: %d\n", n, resultado);
+        return resultado;
+    }
+}
+
+
+// Implementar una funcion qye eleve un numero x a la potencia y(siendo y un numero entero positivo) de manera recursiva
+
+int potenciaRecursiva(int x, int y)
+{
+    if (y == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        int resultado = x * potenciaRecursiva(x, y - 1);
+        printf("El resultado de %d elevado a la potencia %d es: %d\n", x, y, resultado);
+        return resultado;
+    }
+}
+// Hacer una funcion que indique si un numero x es par o impar de manera recursiva
+
+int esPar(int x)
+{
+    if (x == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        int resultado = esPar(x - 2);
+        printf("El numero %d es par: %d\n", x, resultado);
+        return resultado;
+    }
+}
+
+int esImpar(int x)
+{
+    if (x == 1)
+    {
+        return 1;
+    }
+    else
+    {
+        int resultado = esImpar(x - 2);
+        printf("El numero %d es impar: %d\n", x, resultado);
+        return resultado;
+    }
+}
+
+// hacer un procedimiento que muestre po rpantalla los submultiplos de x
+// (entero positivo)
+// 1, 2, 3, 4, 6, 8, 12, 24
+
+void submultiplos(int x, int i)
+{
+    if (i == 0)
+    {
         return;
     }
-    sumatoria(n - 1);
-    printf("%d \n", n);
+    if (x % i == 0)
+    {
+        printf("%d \n", i);
+    }
+    submultiplos(x, i - 1);
 }
