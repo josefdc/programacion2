@@ -18,13 +18,24 @@ float suma, cuadradoSuma, producto, cuboProducto, diferencia; ///< Resultados de
  * @brief Función principal que solicita los valores A, B y C y calcula y muestra los resultados.
  * @return Retorna 0 si el programa se ejecuta correctamente.
  */
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
 int main()
 {
+    // Declarar variables
+    int A, B, C;
+    int suma, cuadradoSuma, producto, cuboProducto, diferencia;
+
     // Solicitar los valores de A, B y C
     cout << "Digite el valor de A: ";
     cin >> A;
+
     cout << "Digite el valor de B: ";
     cin >> B;
+
     cout << "Digite el valor de C: ";
     cin >> C;
 
