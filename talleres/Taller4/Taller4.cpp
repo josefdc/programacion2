@@ -16,6 +16,10 @@ bool ImparPar(int x);
 bool Primo(int n , int i);
 void submultiplos(int x, int i);
 int fibonacci(int n);
+void fibonacci_secuencia(int n);
+int mcm(int a, int b);
+int mcd(int a, int b);
+void hanoi(int n, char origen, char destino, char auxiliar);
 
 int main()
 {
@@ -39,7 +43,11 @@ void mostrarMenu()
     printf("10. Indicar si un numero x es primo o no\n");
     printf("11. Submultiplos de un numero x\n");
     printf("12. N-esimo numero de la serie de Fibonacci\n");
-    printf("Seleccione una opcion (1-6)?\n");
+    printf("13. N primeros numeros de la serie de Fibonacci\n");
+    printf("14. Minimo comun multiplo de dos numeros a y b\n");
+    printf("15. Maximo comun divisor de dos numeros a y b\n");
+    printf("16. Pasos a seguir para resolver el problema de las torres de Hanoi con n anillos\n");
+    printf("Seleccione una opcion (1-16)?\n");
     scanf("%d", &opcion);
 
     int n;
@@ -121,6 +129,27 @@ void mostrarMenu()
             printf("12.Introduce el numero x para mostrar el n-esimo numero de la serie de Fibonacci: ");
             scanf("%d", &n);
             printf("El n-esimo numero de la serie de Fibonacci es: %d\n", fibonacci(n));
+        case 13:
+            printf("13.Introduce el numero x para mostrar los n primeros numeros de la serie de Fibonacci: ");
+            scanf("%d", &n);
+            fibonacci_secuencia(n);
+        case 14:
+            printf("14.Introduce el numero a para mostrar el minimo comun multiplo de dos numeros a y b: ");
+            scanf("%d", &n);
+            int b;
+            printf("Introduce el numero b para mostrar el minimo comun multiplo de dos numeros a y b: ");
+            scanf("%d", &b);
+            printf("El minimo comun multiplo de %d y %d es: %d\n", n, b, mcm(n, b));
+        case 15:
+            printf("15.Introduce el numero a para mostrar el maximo comun divisor de dos numeros a y b: ");
+            scanf("%d", &n);
+            printf("Introduce el numero b para mostrar el maximo comun divisor de dos numeros a y b: ");
+            scanf("%d", &b);
+            printf("El maximo comun divisor de %d y %d es: %d\n", n, b, mcd(n, b));
+        case 16:
+            printf("16.Introduce el numero de anillos para mostrar los pasos a seguir para resolver el problema de las torres de Hanoi con n anillos: ");
+            scanf("%d", &n);
+            hanoi(n, 'A', 'C', 'B');
         default:
             printf("Opcion no valida.\n");
             break;
@@ -358,3 +387,65 @@ int fibonacci(int n)
         return fibonacci(n - 1) + fibonacci(n - 2);
     }
 }
+
+// Hacer un procedimiento que muestre por pantalla los n primeros numeros de la serie de Fibonacci
+
+void fibonacci_secuencia(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    fibonacci_secuencia(n - 1);
+    printf("%d \n", fibonacci(n));
+}
+//hacer una funcion que encuentre y devuelva el minimo comun multiplo de dos numeros enteros positivos a y b
+
+int mcm(int a, int b)
+{
+    if (a == b)
+    {
+        return a;
+    }
+    else if (a > b)
+    {
+        return mcm(a, b + a);
+    }
+    else
+    {
+        return mcm(a + b, b);
+    }
+}
+
+// hacer una funcion que encuentre  y retorne el maximo comun divisor entre dos numeros a y b enteros posivos
+
+int mcd(int a, int b)
+{
+    if (a == b)
+    {
+        return a;
+    }
+    else if (a > b)
+    {
+        return mcd(a - b, b);
+    }
+    else
+    {
+        return mcd(a, b - a);
+    }
+}
+
+// hacer un procedimiento que indique los pasos a seguir para resolver el problema de las torres de Hanoi con n anillos
+
+void hanoi(int n, char origen, char destino, char auxiliar)
+{
+    if (n == 1)
+    {
+        printf("Mover anillo 1 de %c a %c\n", origen, destino);
+        return;
+    }
+    hanoi(n - 1, origen, auxiliar, destino);
+    printf("Mover anillo %d de %c a %c\n", n, origen, destino);
+    hanoi(n - 1, auxiliar, destino, origen);
+}
+
