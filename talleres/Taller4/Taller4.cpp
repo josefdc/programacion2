@@ -7,12 +7,15 @@ void nVecesHola(int n);
 void nPrimerosNumeros(int n);
 void mostrarMenu();
 void tablaMultiplicar(int n, int i);
-void todasLasTablasHastaN(int n);
 void imprimirTablas(int current, int n);
 int sumatoria(int n);
 int factorial(int x);
 int sumatoriaExpresion(int n);
-
+int potenciaRecursiva(int x, int y);
+bool ImparPar(int x);
+bool Primo(int n , int i);
+void submultiplos(int x, int i);
+int fibonacci(int n);
 
 int main()
 {
@@ -31,6 +34,11 @@ void mostrarMenu()
     printf("5. Sumatoria de los numeros enteros hasta N\n");
     printf("6. Factorial de N\n");
     printf("7. Sumatoria de los numeros dados por la expresion x^x para todos los numeros entre 1 y N\n");
+    printf("8. Potencia de un numero x a la y potencia\n");
+    printf("9. Indicar si un numero x es par o impar\n");
+    printf("10. Indicar si un numero x es primo o no\n");
+    printf("11. Submultiplos de un numero x\n");
+    printf("12. N-esimo numero de la serie de Fibonacci\n");
     printf("Seleccione una opcion (1-6)?\n");
     scanf("%d", &opcion);
 
@@ -75,6 +83,44 @@ void mostrarMenu()
             scanf("%d", &n);
             sumatoriaExpresion(n);
             break;
+        case 8:
+            printf("8.Introduce el numero x para mostrar la potencia de x a la y potencia: ");
+            scanf("%d", &n);
+            int y;
+            printf("Introduce el numero y para mostrar la potencia de x a la y potencia: ");
+            scanf("%d", &y);
+            potenciaRecursiva(n, y);
+            break;
+        case 9:
+            printf("9.Introduce el numero x para mostrar si es par o impar: ");
+            scanf("%d", &n);
+            if (ImparPar(n))
+            {
+                printf("El numero %d es par\n", n);
+            }
+            else
+            {
+                printf("El numero %d es impar\n", n);
+            }
+        case 10:
+            printf("10.Introduce el numero x para mostrar si es primo o no: ");
+            scanf("%d", &n);
+            if (Primo(n, n - 1))
+            {
+                printf("El numero %d es primo\n", n);
+            }
+            else
+            {
+                printf("El numero %d no es primo\n", n);
+            }
+        case 11:
+            printf("11.Introduce el numero x para mostrar los submultiplos: ");
+            scanf("%d", &n);
+            submultiplos(n, n - 1);
+        case 12:
+            printf("12.Introduce el numero x para mostrar el n-esimo numero de la serie de Fibonacci: ");
+            scanf("%d", &n);
+            printf("El n-esimo numero de la serie de Fibonacci es: %d\n", fibonacci(n));
         default:
             printf("Opcion no valida.\n");
             break;
@@ -173,19 +219,19 @@ int sumatoriaExpresion(int n)
 
 // Implementar una funcion qye eleve un numero x a la potencia y(siendo y un numero entero positivo) de manera recursiva
 
-int potenciaRecursiva(int x, int y)
-{
-    if (y == 0)
-    {
-        return 1;
-    }
-    else
-    {
-        int resultado = x * potenciaRecursiva(x, y - 1);
-        printf("El resultado de %d elevado a la potencia %d es: %d\n", x, y, resultado);
-        return resultado;
-    }
-}
+// int potenciaRecursiva(int x, int y)
+// {
+//     if (y == 0)
+//     {
+//         return 1;
+//     }
+//     else
+//     {
+//         int resultado = x * potenciaRecursiva(x, y - 1);
+//         printf("El resultado de %d elevado a la potencia %d es: %d\n", x, y, resultado);
+//         return resultado;
+//     }
+// }
 // Hacer una funcion que indique si un numero x es par o impar de manera recursiva
 
 int esPar(int x)
@@ -231,4 +277,84 @@ void submultiplos(int x, int i)
         printf("%d \n", i);
     }
     submultiplos(x, i - 1);
+}
+
+//Implementar una funcion que eleve un numero x a la y potencia (siendo y un numero entero positivo) de manera recursiva
+
+int potenciaRecursiva(int x, int y)
+{
+    if (y == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        int resultado = x * potenciaRecursiva(x, y - 1);
+        printf("El resultado de %d elevado a la potencia %d es: %d\n", x, y, resultado);
+        return resultado;
+    }
+}
+
+// hacer una funcion que indique si un numero x es par o impar de manera recursiva
+bool ImparPar(int x)
+{
+    if (x == 0)
+    {
+        return true;
+    }
+    else if (x == 1)
+    {
+        return false;
+    }
+    else
+    {
+        return ImparPar(x - 2);
+    }
+}
+
+// hacer una funcion boooleana que indique si un numero x es primo o no de manera recursiva
+
+bool Primo(int n , int i)
+{
+    if (i == 1)
+    {
+        return true;
+    }
+    else if (n % i == 0)
+    {
+        return false;
+    }
+    else
+    {
+        return Primo(n, i - 1);
+    }
+}
+
+//Hacer un procedimiento que muestre por pantalla los subm ́ultiplos de x (entero positivo
+
+// int submultiplos(int x, int i)
+// {
+//     if (i == 0)
+//     {
+//         return;
+//     }
+//     if (x % i == 0)
+//     {
+//         printf("%d \n", i);
+//     }
+//     submultiplos(x, i - 1);
+// }
+
+// Hacer una funcion que devuelva el n-esimo numero de la serie de Fibonacci
+
+int fibonacci(int n)
+{
+    if (n == 0 || n == 1)
+    {
+        return n;
+    }
+    else
+    {
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
 }
