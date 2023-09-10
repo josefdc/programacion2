@@ -28,6 +28,7 @@ void Menu()
         printf("4. Perfecto\n");
         printf("5. Amigos\n");
         printf("6. Fibonacci\n");
+        printf("7. Factorial\n");
         printf("12. Salir\n");
         printf("Ingrese una opcion: (1-12)\n");
         scanf("%d", &opcion);
@@ -58,6 +59,7 @@ void Menu()
         case 7:
             Factorial();
             break;
+            
         default:
             break;
         }
