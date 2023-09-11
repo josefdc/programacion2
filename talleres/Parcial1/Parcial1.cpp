@@ -59,7 +59,14 @@ void menu()
     case 3:
         printf("Digite el numero que desea invertir\n");
         scanf("%d", &numero);
-        printf("El numero invertido es: %d\n", invertir_digitos(numero));
+        if (numero < 1000 || numero > 9999)
+        {
+            printf("El numero no tiene 4 digitos\n");
+        }
+        else
+        {
+            printf("El numero invertido es: %d\n", invertir_digitos(numero));
+        }
         break;
     case 4:
         printf("Salir\n");
@@ -103,35 +110,31 @@ int cantidad_digitos(int n)
     {
         return 1;
     }
-    else
+    else // Caso recursivo
     {
-        return 1 + cantidad_digitos(n / 10); // Llamado recursivo
+        return 1 + cantidad_digitos(n / 10);
     }
 }
 
 /*
-Escriba una función que tome un valor entero de cuatro dígitos (Debe validar que el número es de 4 dígitos) y retorne el número con los dígitos invertidos. Por ejemplo, dado el número 2868, la función deberá regresar 8682.
+Escriba una función que tome un valor entero de cuatro dígitos (Debe validar que el número es de 4 dígitos) y retorne el número con los dígitos invertidos. 
 */
 
 int invertir_digitos(int n)
 {
-    if (cantidad_digitos(n) != 4)
-    {
-        printf("El numero no tiene 4 digitos\n");
-        return n;
-    }
-    else if (n < 10)
+    if (n < 10) // Caso base
     {
         return n;
     }
+    
     else
     {
-        int ultimo_digito = n % 10;
-        int resto = n / 10;
-        int numero_invertido = invertir_digitos(resto);
-        int cantidad_digitos_invertidos = cantidad_digitos(numero_invertido);
-        int factor = pow(10, cantidad_digitos_invertidos);
-        return ultimo_digito * factor + numero_invertido;
+        int ultimo_digito = n % 10;  // Ultimo digito ejemplo: 1234 % 10 = 4
+        int resto = n / 10; // Resto ejemplo: 1234 / 10 = 123
+        int numero_invertido = invertir_digitos(resto); // Llamado recursivo
+        int cantidad_digitos_invertidos = cantidad_digitos(numero_invertido); // Cantidad de digitos del numero invertido
+        int factor = pow(10, cantidad_digitos_invertidos); // Factor para multiplicar el ultimo digito
+        return ultimo_digito * factor + numero_invertido;// Retornamos el numero invertido
     }
 }
 
