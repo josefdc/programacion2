@@ -1,0 +1,142 @@
+// 1. Operaciones básicas entre dos números.
+#include <cstdio>
+int main() {
+    double a, b;
+    printf("Introduce dos números: ");
+    scanf("%lf %lf", &a, &b);
+    printf("Suma: %lf\nResta: %lf\nMultiplicación: %lf\nDivisión: %lf\nPotencia: %lf\n", a+b, a-b, a*b, a/b, pow(a,b));
+    return 0;
+}
+
+// 2. Promedio de un estudiante.
+#include <cstdio>
+int main() {
+    char codigo[50], nombre[50];
+    double nota1, nota2, nota3;
+    printf("Introduce el código del estudiante: ");
+    scanf("%s", codigo);
+    printf("Introduce el nombre del estudiante: ");
+    scanf("%s", nombre);
+    printf("Introduce las 3 notas del estudiante: ");
+    scanf("%lf %lf %lf", &nota1, &nota2, &nota3);
+    printf("El promedio es: %lf\n", (nota1 + nota2 + nota3) / 3.0);
+    return 0;
+}
+
+// 3. Área de una circunferencia.
+#include <cstdio>
+int main() {
+    double radio;
+    const double PI = 3.14159265358979323846;
+    printf("Introduce el radio de la circunferencia: ");
+    scanf("%lf", &radio);
+    printf("El área de la circunferencia es: %lf\n", PI * radio * radio);
+    return 0;
+}
+
+// 4. Conversión de grados Fahrenheit a Centígrados.
+#include <cstdio>
+int main() {
+    double f;
+    printf("Introduce la temperatura en grados Fahrenheit: ");
+    scanf("%lf", &f);
+    printf("La temperatura en grados Centígrados es: %lf\n", (5.0/9.0) * (f - 32));
+    return 0;
+}
+
+// 5. Operaciones con A, B y C.
+#include <cstdio>
+int main() {
+    double A, B, C;
+    printf("Introduce los valores de A, B y C: ");
+    scanf("%lf %lf %lf", &A, &B, &C);
+    printf("Cuadrado de la suma: %lf\n", pow(A+B+C, 2));
+    printf("Producto de los valores: %lf\n", A*B*C);
+    printf("Cubo del Producto: %lf\n", pow(A*B*C, 3));
+    printf("Diferencia entre el cuadrado y el cubo: %lf\n", pow(A+B+C, 2) - pow(A*B*C, 3));
+    return 0;
+}
+
+// 6. Verificar orden de tres números.
+#include <cstdio>
+int main() {
+    double a, b, c;
+    printf("Introduce tres números: ");
+    scanf("%lf %lf %lf", &a, &b, &c);
+    if (a <= b && b <= c) {
+        printf("Los números están en orden ascendente.\n");
+    } else if (a >= b && b >= c) {
+        printf("Los números están en orden descendente.\n");
+    } else {
+        printf("Los números no están en orden.\n");
+    }
+    return 0;
+}
+
+// 7. Operaciones con número entero.
+#include <cstdio>
+int main() {
+    int n;
+    printf("Introduce un número entero (no mayor que 100): ");
+    scanf("%d", &n);
+    if (n <= 100) {
+        if (n % 4 == 0) printf("La mitad del número es: %d\n", n/2);
+        if (n % 5 == 0) printf("El cuadrado del número es: %d\n", n*n);
+        if (n % 6 == 0) printf("El cubo del número es: %d\n", n*n*n);
+    } else {
+        printf("El número es mayor que 100.\n");
+    }
+    return 0;
+}
+
+// 8. Determinar cantidad de dígitos.
+#include <cstdio>
+int main() {
+    int num;
+    printf("Introduce un número entero positivo: ");
+    scanf("%d", &num);
+    if (num < 10) {
+        printf("El número tiene 1 dígito.\n");
+    } else if (num < 100) {
+        printf("El número tiene 2 dígitos.\n");
+    } else if (num < 1000) {
+        printf("El número tiene 3 dígitos.\n");
+    } else {
+        printf("El número tiene 4 o más dígitos.\n");
+    }
+    return 0;
+}
+
+// 9. Mayor temperatura.
+#include <cstdio>
+int main() {
+    double t1, t2, t3;
+    printf("Introduce las temperaturas a las 6 AM, 2 PM y 10 PM: ");
+    scanf("%lf %lf %lf", &t1, &t2, &t3);
+    if (t1 > t2 && t1 > t3) {
+        printf("La mayor temperatura fue en la mañana.\n");
+    } else if (t2 > t1 && t2 > t3) {
+        printf("La mayor temperatura fue en la tarde.\n");
+    } else {
+        printf("La mayor temperatura fue en la noche.\n");
+    }
+    return 0;
+}
+
+// 10. Verificar múltiplo entre dígitos.
+#include <cstdio>
+int main() {
+    int num, dig1, dig2;
+    printf("Introduce un número entero de 2 dígitos: ");
+    scanf("%d", &num);
+    dig1 = num / 10;  // Primer dígito
+    dig2 = num % 10;  // Segundo dígito
+    if (dig1 != 0 && dig2 % dig1 == 0) {
+        printf("El primer dígito es múltiplo del segundo.\n");
+    } else if (dig2 != 0 && dig1 % dig2 == 0) {
+        printf("El segundo dígito es múltiplo del primero.\n");
+    } else {
+        printf("Ningún dígito es múltiplo del otro.\n");
+    }
+    return 0;
+}
