@@ -406,7 +406,7 @@ void Salario()
     if (salario_bruto > 100000)
         descuento = salario_bruto * 0.02;
     else if (salario_bruto >= 90000 && salario_bruto <= 100000)
-        descuento = salario_bruto * 0.01;
+        descuento = salario_bruto * 0.01;ls
     else
         bonificacion = salario_bruto * 0.04;
     salario_neto = salario_bruto - descuento + bonificacion;
