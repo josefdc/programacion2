@@ -246,21 +246,7 @@ int sumatoriaExpresion(int n)
 }
 
 
-// Implementar una funcion qye eleve un numero x a la potencia y(siendo y un numero entero positivo) de manera recursiva
 
-// int potenciaRecursiva(int x, int y)
-// {
-//     if (y == 0)
-//     {
-//         return 1;
-//     }
-//     else
-//     {
-//         int resultado = x * potenciaRecursiva(x, y - 1);
-//         printf("El resultado de %d elevado a la potencia %d es: %d\n", x, y, resultado);
-//         return resultado;
-//     }
-// }
 // Hacer una funcion que indique si un numero x es par o impar de manera recursiva
 
 int esPar(int x)
@@ -359,20 +345,6 @@ bool Primo(int n , int i)
     }
 }
 
-//Hacer un procedimiento que muestre por pantalla los subm ́ultiplos de x (entero positivo
-
-// int submultiplos(int x, int i)
-// {
-//     if (i == 0)
-//     {
-//         return;
-//     }
-//     if (x % i == 0)
-//     {
-//         printf("%d \n", i);
-//     }
-//     submultiplos(x, i - 1);
-// }
 
 // Hacer una funcion que devuelva el n-esimo numero de la serie de Fibonacci
 
