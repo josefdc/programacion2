@@ -88,33 +88,35 @@ int primo(int n, int i)
 {
     if (i == 1) // Caso base
     {
-        return 1;
+        return 1;  // Si llegamos a i=1, significa que n no fue divisible por ningún número entre 2 y n-1. Por lo tanto, es primo.
     }
     else
     {
         if (n % i == 0) // Caso recursivo
         {
-            return 0;
+            return 0;  // Si n es divisible por i, entonces no es primo.
         }
         else
         {
-            return primo(n, i - 1); // Llamado recursivo
+            return primo(n, i - 1); // Llamado recursivo: verifica si n es divisible por el siguiente número menor a i.
         }
     }
 }
 
-// Funcion que determina de manera recursiva la cantidad de digitos de un numero entero
+
+// Funcion que determina de manera recursiva la cantidad de digitos de un número entero
 int cantidad_digitos(int n)
 {
     if (n < 10) // Caso base
     {
-        return 1;
+        return 1;  // Si el número es menor que 10, significa que solo tiene un dígito.
     }
     else // Caso recursivo
     {
-        return 1 + cantidad_digitos(n / 10);
+        return 1 + cantidad_digitos(n / 10); // Añade 1 al contador y quita el último dígito del número.
     }
 }
+
 
 /*
 Escriba una función que tome un valor entero de cuatro dígitos (Debe validar que el número es de 4 dígitos) y retorne el número con los dígitos invertidos. 
@@ -124,20 +126,22 @@ int invertir_digitos(int n)
 {
     if (n < 10) // Caso base
     {
-        return n;
+        return n; // Si el número tiene solo un dígito, simplemente se devuelve ese número.
     }
     
     else
     {
-        int ultimo_digito = n % 10;  // Ultimo digito ejemplo: 1234 % 10 = 4
-        int resto = n / 10; // Resto ejemplo: 1234 / 10 = 123
-        int numero_invertido = invertir_digitos(resto); // Llamado recursivo
-        int cantidad_digitos_invertidos = cantidad_digitos(numero_invertido); // Cantidad de digitos del numero invertido
-        int factor = pow(10, cantidad_digitos_invertidos); // Factor para multiplicar el ultimo digito
-        return ultimo_digito * factor + numero_invertido;// Retornamos el numero invertido
+        int ultimo_digito = n % 10;  // Obtiene el último dígito del número. Ejemplo: 1234 % 10 = 4
+        int resto = n / 10; // Obtiene el número sin su último dígito. Ejemplo: 1234 / 10 = 123
+        
+        int numero_invertido = invertir_digitos(resto); // Llamado recursivo para invertir los dígitos del número sin el último dígito.
+        int cantidad_digitos_invertidos = cantidad_digitos(numero_invertido); // Determina la cantidad de dígitos del número invertido hasta ahora.
+        
+        int factor = pow(10, cantidad_digitos_invertidos); // Calcula un factor multiplicativo para el último dígito. Si el número invertido tiene 2 dígitos, el factor será 100.
+        
+        return ultimo_digito * factor + numero_invertido; // Coloca el último dígito al principio y suma el número invertido hasta ahora.
     }
 }
-
 
 
 
