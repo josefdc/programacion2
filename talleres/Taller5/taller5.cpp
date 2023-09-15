@@ -11,6 +11,10 @@ void Perfecto();
 void Amigos();
 void Fibonacci();
 void Factorial();
+void Perfectos();
+void rangoPrimos();
+void factoriales();
+void tablas();
 int main()
 {
     Menu();
@@ -29,6 +33,10 @@ void Menu()
         printf("5. Amigos\n");
         printf("6. Fibonacci\n");
         printf("7. Factorial\n");
+        printf("8. ¿Cuantos numero perfectos hay entre 1 y 10000 Perfectos?\n");
+        printf("9. ¿Cuantos numero primos hay entre 1 y 1000?\n");
+        printf("10. Factoriales\n");
+        printf("11. Tablas\n");
         printf("12. Salir\n");
         printf("Ingrese una opcion: (1-12)\n");
         scanf("%d", &opcion);
@@ -59,7 +67,21 @@ void Menu()
         case 7:
             Factorial();
             break;
-            
+        case 8:
+            Perfectos();
+            break;
+        case 9:
+            rangoPrimos();
+            break;
+        case 10:
+            factoriales();
+            break;
+        case 11:
+            tablas();
+            break;
+        case 12:
+            printf("Adios\n");
+            break;
         default:
             break;
         }
@@ -238,5 +260,109 @@ void Factorial()
         i++;
     }
     printf("El factorial es: %d\n", factorial);
+    system("pause");
+}
+/*
+implementar un algoritmo que diga cuantos numeros perfectos hay entre
+1 y 10000.
+*/
+void Perfectos()
+{
+    int i = 1;
+    int suma = 0;
+    int perfectos = 0;
+    while (i <= 10000)
+    {
+        int j = 1;
+        suma = 0;
+        while (j < i)
+        {
+            if (i % j == 0)
+            {
+                suma = suma + j;
+            }
+            j++;
+        }
+        if (suma == i)
+        {
+            perfectos++;
+        }
+        i++;
+    }
+    printf("Hay %d numeros perfectos\n", perfectos);
+    system("pause");
+}
+
+/*
+Implementar un algoritmo que diga cuales numeros primos hay entre 1 y
+1000 (debe mostrar los numeros).
+*/
+void rangoPrimos()
+{
+    int i = 1;
+    while (i <= 1000)
+    {
+        int j = 1;
+        int divisores = 0;
+        while (j <= i)
+        {
+            if (i % j == 0)
+            {
+                divisores++;
+            }
+            j++;
+        }
+        if (divisores == 2)
+        {
+            printf("%d\n", i);
+        }
+        i++;
+    }
+    system("pause");
+}
+/*
+Hacer un programa que muestre los factoriales de los primeros 10 enteros,
+debe tener la siguiente salida:
+Factorial de 0: 1
+Factorial de 1: 1
+Factorial de 2: 2
+Factorial de 3: 6
+Factorial de 4: 24
+*/
+
+void factoriales()
+{
+    int i = 0;
+    while (i < 10) 
+    {
+        int j = 1;
+        int factorial = 1;
+        while (j <= i) 
+        {
+            factorial = factorial * j;
+            j++;
+        }
+        printf("Factorial de %d: %d\n", i, factorial);
+        i++;
+    }
+    system("pause");
+}
+
+/*
+Implementar las tablas de multiplicar del 10 al 20.
+*/
+void tablas()
+{
+    int i = 10;
+    while (i <= 20)
+    {
+        int j = 1;
+        while (j <= 10)
+        {
+            printf("%d x %d = %d\n", i, j, i * j);
+            j++;
+        }
+        i++;
+    }
     system("pause");
 }
