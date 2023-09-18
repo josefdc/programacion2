@@ -127,14 +127,12 @@ long Suma3(int n)
 void Notas()
 {
     float nota, total = 0;
-    int i = 1;
-    do
+    for (int i = 1; i <= 4; i++)
     {
         printf("Ingrese la nota %d: ", i);
         scanf("%f", &nota);
         total = total + nota;
-        i++;
-    }while (i <= 4);
+    }
     float promedio = total / 4;
     if (promedio >= 3)
     {
@@ -157,17 +155,15 @@ void Perfecto()
     int n;
     printf("Ingrese un numero: ");
     scanf("%d", &n);
-    int i = 1;
     int suma = 0;
-    do
+    for (int i = 1; i < n; i++)
     {
         if (n % i == 0)
         {
             suma = suma + i;
             printf("%d\n", i);
         }
-        i++;
-    } while (i < n);
+    }
     if (suma == n)
     {
         printf("Es perfecto\n");
@@ -178,7 +174,6 @@ void Perfecto()
     }
     system("pause");
 }
-
 /*
 5. Leer dos números enteros por tecladoy determinar si éstos son números amigos(Dos números amigos son
  dos enteros positivos a y b tales que a es la suma de los divisores propios de b, y b es la suma
