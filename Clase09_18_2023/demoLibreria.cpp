@@ -1,52 +1,52 @@
-#include "Libreria.h"
+#include "Libreria.h"  // Incluye las definiciones de funciones de la librería personalizada
 
 int main() {
-    // Configuración inicial
-    color(7); // Establece el color a blanco
-    system("cls"); // Limpia la consola
+    // ------------------------ CONFIGURACIÓN INICIAL ------------------------
+    color(7);  // Establece el color del texto en la consola a blanco
+    system("cls");  // Limpia la pantalla de la consola. Equivalente a escribir "cls" en la terminal
 
-    // Muestra el título del programa
-    gotoxy(10, 2);
-    printf("DEMOSTRACION DE FUNCIONES DE LIBRERIA.H");
+    // ------------------------ TÍTULO DEL PROGRAMA ------------------------
+    gotoxy(10, 2);  // Mueve el cursor a la posición (10, 2) en la consola
+    printf("DEMOSTRACION DE FUNCIONES DE LIBRERIA.H");  // Imprime el título
 
-    // Mueve el cursor a la posición (10, 10) y muestra un mensaje
-    gotoxy(10, 10);
-    printf("Hello, World!");
+    // ------------------------ MENSAJE "HELLO, WORLD!" ------------------------
+    gotoxy(10, 10);  // Mueve el cursor a la posición (10, 10)
+    printf("Hello, World!");  // Imprime el mensaje "Hello, World!"
 
-    // Cambia el color del texto a rojo y muestra otro mensaje
-    color(4);
-    gotoxy(10, 12);
-    printf("This is in red color!");
+    // ------------------------ MENSAJE EN COLOR ROJO ------------------------
+    color(4);  // Cambia el color del texto a rojo
+    gotoxy(10, 12);  // Mueve el cursor a la posición (10, 12)
+    printf("This is in red color!");  // Imprime el mensaje en rojo
 
-    // Dibuja una línea horizontal
-    color(7); // Restablece el color a blanco
-    gotoxy(10, 14);
-    LineaH(10, 14, 30); // Dibuja una línea horizontal desde la posición (10, 14) con una longitud de 30 caracteres
+    // ------------------------ LÍNEA HORIZONTAL ------------------------
+    color(7);  // Cambia el color del texto a blanco
+    gotoxy(10, 14);  // Mueve el cursor a la posición inicial de la línea
+    LineaH(10, 14, 30);  // Dibuja una línea horizontal de 30 caracteres de longitud
 
-    // Dibuja una línea vertical
-    LineaV(30, 10, 7); // Dibuja una línea vertical desde la posición (30, 10) con una altura de 7 caracteres
+    // ------------------------ LÍNEA VERTICAL ------------------------
+    LineaV(30, 10, 7);  // Dibuja una línea vertical de 7 caracteres de altura
 
-    // Muestra una lista de colores disponibles
-    gotoxy(40, 10);
+    // ------------------------ LISTA DE COLORES DISPONIBLES ------------------------
+    gotoxy(40, 10);  // Mueve el cursor a la posición donde se mostrará el título de colores
     printf("Colores disponibles:");
-    for (int i = 0; i < 16; i++) {
-        gotoxy(40, 11 + i);
-        color(i);
-        printf("Color %d", i);
+    for (int i = 0; i < 16; i++) {  // Bucle para mostrar 16 colores
+        gotoxy(40, 11 + i);  // Mueve el cursor a la posición inicial de cada color
+        color(i);  // Establece el color de texto
+        printf("Color %d", i);  // Imprime el número del color
     }
-    color(7);  // Restablecer el color a blanco
+    color(7);  // Restablece el color del texto a blanco
 
-    // Muestra una breve lista de caracteres ASCII
-    gotoxy(60, 10);
+    // ------------------------ LISTA DE CARACTERES ASCII ------------------------
+    gotoxy(60, 10);  // Mueve el cursor a la posición donde se mostrará el título de caracteres ASCII
     printf("Caracteres ASCII:");
-    for (int i = 33; i < 48; i++) {
-        gotoxy(60, 10 + (i - 33));
-        printf("%d : %c", i, (char)i);
+    for (int i = 33; i < 48; i++) {  // Bucle para mostrar caracteres ASCII desde 33 hasta 47
+        gotoxy(60, 10 + (i - 33));  // Mueve el cursor a la posición de cada caracter
+        printf("%d : %c", i, (char)i);  // Imprime el número y el caracter ASCII correspondiente
     }
 
-    // Pausa y espera a que el usuario presione una tecla antes de salir
-    gotoxy(10, 30);
-    system("pause");
+    // ------------------------ PAUSA ANTES DE TERMINAR ------------------------
+    gotoxy(10, 30);  // Mueve el cursor a una posición inferior
+    system("pause");  // Espera que el usuario presione una tecla antes de cerrar el programa
 
-    return 0;
+    return 0;  // Finaliza el programa
 }
