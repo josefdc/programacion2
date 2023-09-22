@@ -1,5 +1,3 @@
-// libreria.h
-
 #ifndef LIBRERIA_H
 #define LIBRERIA_H
 
@@ -13,7 +11,7 @@
  */
 void gotoxy(int x, int y) {
     HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);  
-    COORD dwPos = { x, y };  
+    COORD dwPos = { static_cast<SHORT>(x), static_cast<SHORT>(y) };  
     SetConsoleCursorPosition(hcon, dwPos);  
 }
 
@@ -36,15 +34,15 @@ void ListaColores() {
         
         gotoxy(20, i);
         color(i + 64);
-        printf("Color %d", i);
+        printf("Color %d", i + 64);
         
         gotoxy(40, i);
         color(i + 128);
-        printf("Color %d", i);
+        printf("Color %d", i + 128);
         
         gotoxy(60, i);
         color(i + 192);
-        printf("Color %d", i);
+        printf("Color %d", i + 192);
     }
     color(7);  // Restablecer el color a blanco
 }
