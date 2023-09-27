@@ -92,4 +92,36 @@ void LineaV(int x, int y, int tope) {
     }
 }
 
+/**
+ * @brief Una función que dibuja un rectángulo en la consola.
+ * 
+ * @param x  Coordenada horizontal inicial.
+ * @param y  Coordenada vertical inicial.
+ * @param ancho el ancho del rectángulo.
+ * @param alto  la altura del rectángulo.
+ */
+void Rectangulo(int x, int y, int ancho, int alto) {
+    LineaH(x, y, ancho);
+    LineaH(x, y + alto, ancho);
+    LineaV(x, y, alto);
+    LineaV(x + ancho, y, alto);
+    // Agregar las esquinas con los caracteres 218, 191, 192 y 217
+    printf("%c", 218);
+    for (int i = 0; i < ancho - 2; i++) {
+        printf("%c", 196);
+    }
+    printf("%c\n", 191);
+    for (int i = 0; i < alto - 2; i++) {
+        printf("%c", 179);
+        for (int j = 0; j < ancho - 2; j++) {
+            printf(" ");
+        }
+        printf("%c\n", 179);
+    }
+    printf("%c", 192);
+    for (int i = 0; i < ancho - 2; i++) {
+        printf("%c", 196);
+    }
+    printf("%c\n", 217);
+}
 #endif  // LIBRERIA_H
