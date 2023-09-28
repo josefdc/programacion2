@@ -93,35 +93,36 @@ void LineaV(int x, int y, int tope) {
 }
 
 /**
- * @brief Una función que dibuja un rectángulo en la consola.
- * 
- * @param x  Coordenada horizontal inicial.
- * @param y  Coordenada vertical inicial.
- * @param ancho el ancho del rectángulo.
- * @param alto  la altura del rectángulo.
+ * @brief Dibuja un rectángulo en la consola desde la posición (x1, y1) con dimensiones TamHori x TamVerti.
+ * @param x1 Posición inicial en el eje x. 
+ * @param y1 Posición inicial en el eje y.
+ * @param TamHori Tamaño horizontal del rectángulo.
+ * @param TamVerti Tamaño vertical del rectángulo.
  */
-void Rectangulo(int x, int y, int ancho, int alto) {
-    LineaH(x, y, ancho);
-    LineaH(x, y + alto, ancho);
-    LineaV(x, y, alto);
-    LineaV(x + ancho, y, alto);
-    // Agregar las esquinas con los caracteres 218, 191, 192 y 217
-    printf("%c", 218);
-    for (int i = 0; i < ancho - 2; i++) {
-        printf("%c", 196);
+void Rectangulo(int x1, int y1, int TamHori, int TamVerti) {
+    // Coordenadas finales
+    int x2 = x1 + TamHori;
+    int y2 = y1 + TamVerti;
+
+    // Dibujo de las líneas horizontales
+    char lineH[TamHori + 2];  // +2 para el carácter nulo y un espacio extra
+    memset(lineH, (char)196, TamHori);
+    lineH[TamHori] = '\0';  // Termino de la cadena
+
+    gotoxy(x1, y1);
+    printf("%c%s%c", (char)218, lineH, (char)191);
+
+    gotoxy(x1, y2);
+    printf("%c%s%c", (char)192, lineH, (char)217);
+
+    // Dibujo de las líneas verticales
+    for (int i = 1; i < TamVerti; i++) {
+        gotoxy(x1, y1 + i);
+        printf("%c", (char)179);
+
+        gotoxy(x2, y1 + i);
+        printf("%c", (char)179);
     }
-    printf("%c\n", 191);
-    for (int i = 0; i < alto - 2; i++) {
-        printf("%c", 179);
-        for (int j = 0; j < ancho - 2; j++) {
-            printf(" ");
-        }
-        printf("%c\n", 179);
-    }
-    printf("%c", 192);
-    for (int i = 0; i < ancho - 2; i++) {
-        printf("%c", 196);
-    }
-    printf("%c\n", 217);
 }
+
 #endif  // LIBRERIA_H
