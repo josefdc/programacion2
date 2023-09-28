@@ -92,4 +92,37 @@ void LineaV(int x, int y, int tope) {
     }
 }
 
+/**
+ * @brief Dibuja un rectángulo en la consola desde la posición (x1, y1) con dimensiones TamHori x TamVerti.
+ * @param x1 Posición inicial en el eje x. 
+ * @param y1 Posición inicial en el eje y.
+ * @param TamHori Tamaño horizontal del rectángulo.
+ * @param TamVerti Tamaño vertical del rectángulo.
+ */
+void Rectangulo(int x1, int y1, int TamHori, int TamVerti) {
+    // Coordenadas finales
+    int x2 = x1 + TamHori;
+    int y2 = y1 + TamVerti;
+
+    // Dibujo de las líneas horizontales
+    char lineH[TamHori + 2];  // +2 para el carácter nulo y un espacio extra
+    memset(lineH, (char)196, TamHori);
+    lineH[TamHori] = '\0';  // Termino de la cadena
+
+    gotoxy(x1, y1);
+    printf("%c%s%c", (char)218, lineH, (char)191);
+
+    gotoxy(x1, y2);
+    printf("%c%s%c", (char)192, lineH, (char)217);
+
+    // Dibujo de las líneas verticales
+    for (int i = 1; i < TamVerti; i++) {
+        gotoxy(x1, y1 + i);
+        printf("%c", (char)179);
+
+        gotoxy(x2, y1 + i);
+        printf("%c", (char)179);
+    }
+}
+
 #endif  // LIBRERIA_H
