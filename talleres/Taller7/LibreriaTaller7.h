@@ -24,47 +24,51 @@ void color(int c) {
 }
 
 /**
- * Muestra una lista de colores en la consola.
+ * @brief Muestra una tabla de colores en la consola desde 0 a 255.
+ * 
+ * La función despliega una tabla de colores en 4 columnas. Cada columna muestra
+ * una serie de colores con su respectivo código. Al final, se restablece el color
+ * de la consola al blanco.
  */
 void ListaColores() {
-    for (int i = 0; i < 64; i++) {
-        gotoxy(1, i);
-        color(i);
-        printf("Color %d", i);
-        
-        gotoxy(20, i);
-        color(i + 64);
-        printf("Color %d", i + 64);
-        
-        gotoxy(40, i);
-        color(i + 128);
-        printf("Color %d", i + 128);
-        
-        gotoxy(60, i);
-        color(i + 192);
-        printf("Color %d", i + 192);
+    int totalColors = 256;
+    int colorsPerColumn = totalColors / 4;
+
+    for (int i = 0; i < colorsPerColumn; i++) {
+        for (int j = 0; j < 4; j++) {
+            int currentColor = i + j * colorsPerColumn;
+            gotoxy(j * 20, i);
+            color(currentColor);
+            printf("Color %d", currentColor);
+        }
     }
+
     color(7);  // Restablecer el color a blanco
 }
 
+
 /**
- * Muestra una lista de valores ASCII y sus caracteres correspondientes.
+ * @brief Muestra una lista de caracteres ASCII en la consola.
+ * 
+ * Esta función imprime una lista de caracteres ASCII en tres columnas en la consola.
+ * Cada columna representa un rango de valores ASCII. La primera columna muestra
+ * los caracteres ASCII desde el valor 0 al 84, la segunda columna muestra los 
+ * caracteres desde 85 al 169, y la tercera columna muestra los caracteres desde 
+ * 170 al 255.
  */
 void ListaAscii() {
-    for (int i = 0; i < 64; i++) {
+    for (int i = 0; i < 85; i++) {
         gotoxy(1, i);
         printf("%d : %c", i, (char)i);
         
         gotoxy(20, i);
-        printf("%d : %c", i + 64, (char)(i + 64));
+        printf("%d : %c", i + 85, (char)(i + 85));
         
         gotoxy(40, i);
-        printf("%d : %c", i + 128, (char)(i + 128));
-        
-        gotoxy(60, i);
-        printf("%d : %c", i + 192, (char)(i + 192));
+        printf("%d : %c", i + 170, (char)(i + 170));
     }
 }
+
 
 /**
  * Dibuja una línea horizontal en la consola.
@@ -344,4 +348,4 @@ void tabla(int x1, int y1, int filas, int columnas, int borde) {
     }
 }
 
-#endif  // LIBRERIA_H
+#endif  // LIBRERIATALLER7_H
