@@ -176,5 +176,172 @@ void cuadro(int x1, int y1, int x2, int y2, int borde) {
     printf("%c", esquinaInferiorDerecha);
 }
 
+/**
+ * @brief Dibuja un cuadrado con relleno en la consola.
+ * 
+ * Esta función dibuja un cuadrado con un color de relleno especificado en la consola.
+ * El borde del cuadrado se dibuja con líneas y el interior se rellena con el color 
+ * proporcionado. Después de dibujar el cuadrado, se restaura el color original de la consola.
+ * 
+ * @param x1 Coordenada horizontal de la esquina superior izquierda del cuadrado.
+ * @param y1 Coordenada vertical de la esquina superior izquierda del cuadrado.
+ * @param x2 Coordenada horizontal de la esquina inferior derecha del cuadrado.
+ * @param y2 Coordenada vertical de la esquina inferior derecha del cuadrado.
+ * @param colorRelleno Código de color para el relleno del cuadrado.
+ */
+void cuadroR(int x1, int y1, int x2, int y2, int colorRelleno) {
+    // Rellenar el interior del cuadrado con el color especificado
+    color(colorRelleno);
+    for (int y = y1 + 1; y < y2; y++) {
+        for (int x = x1 + 1; x < x2; x++) {
+            gotoxy(x, y);
+            printf(" ");  // Usar un espacio para rellenar
+        }
+    }
+    
+    // Dibujar el borde del cuadrado por encima del relleno
+    cuadro(x1, y1, x2, y2, 0);  // Estoy asumiendo que deseas un borde simple para el cuadro con relleno
+
+    // Restaurar el color original (por ejemplo, blanco)
+    color(7);
+}
+
+/**
+ * @brief Dibuja una ventana con efecto de sombra en la consola.
+ * 
+ * Esta función dibuja un cuadro que representa una ventana y añade un efecto de sombra
+ * en la parte inferior y en el lado derecho. Los colores de la ventana y de la sombra
+ * pueden ser personalizados.
+ * 
+ * @param x1 Coordenada horizontal de la esquina superior izquierda de la ventana.
+ * @param y1 Coordenada vertical de la esquina superior izquierda de la ventana.
+ * @param x2 Coordenada horizontal de la esquina inferior derecha de la ventana.
+ * @param y2 Coordenada vertical de la esquina inferior derecha de la ventana.
+ * @param colorFondo Código de color para el fondo de la ventana.
+ * @param colorSombra Código de color para la sombra de la ventana.
+ */
+void ventana1(int x1, int y1, int x2, int y2, int colorFondo, int colorSombra) {
+    // Dibujar y rellenar el cuadro principal
+    cuadroR(x1, y1, x2, y2, colorFondo);
+
+    // Dibujar la sombra en la parte inferior
+    color(colorSombra);
+    for (int x = x1 + 1; x <= x2 + 1; x++) {
+        gotoxy(x, y2 + 1);
+        printf(" ");
+    }
+
+    // Dibujar la sombra en el lado derecho
+    for (int y = y1 + 1; y <= y2 + 1; y++) {
+        gotoxy(x2 + 1, y);
+        printf(" ");
+    }
+
+    // Restaurar el color original (por ejemplo, blanco)
+    color(7);
+}
+
+/**
+ * @brief Dibuja una ventana con una barra de título.
+ * 
+ * Esta función dibuja un cuadrado con un color de fondo y sombra especificados en la consola.
+ * Además, colorea la parte superior del cuadrado con un color diferente para representar la barra del título.
+ * 
+ * @param x1 Coordenada horizontal de la esquina superior izquierda del cuadrado.
+ * @param y1 Coordenada vertical de la esquina superior izquierda del cuadrado.
+ * @param x2 Coordenada horizontal de la esquina inferior derecha del cuadrado.
+ * @param y2 Coordenada vertical de la esquina inferior derecha del cuadrado.
+ * @param colortitulo Código de color para la barra del título.
+ * @param colorfondo Código de color para el fondo del cuadrado.
+ * @param colorSombra Código de color para la sombra del cuadrado.
+ */
+void ventana2(int x1, int y1, int x2, int y2, int colortitulo, int colorfondo, int colorSombra) {
+    // Dibuja el cuadrado con sombra
+    ventana1(x1, y1, x2, y2, colorfondo, colorSombra);
+    
+    // Colorea la barra del título
+    color(colortitulo);
+    for (int x = x1 + 1; x < x2; x++) {
+        gotoxy(x, y1);
+        printf(" ");
+    }
+    
+    // Restaurar el color original
+    color(7);
+}
+
+/**
+ * @brief Dibuja una tabla en la consola.
+ * 
+ * Esta función dibuja una tabla con un número especificado de filas y columnas en la consola.
+ * 
+ * @param x1 Coordenada horizontal de la esquina superior izquierda de la tabla.
+ * @param y1 Coordenada vertical de la esquina superior izquierda de la tabla.
+ * @param filas Número de filas de la tabla.
+ * @param columnas Número de columnas de la tabla.
+ * @param borde 0 para borde simple, 1 para borde doble.
+ */
+void tabla(int x1, int y1, int filas, int columnas, int borde) {
+    // Definición de caracteres de borde
+    char horizontal, vertical, esquinaSuperiorIzquierda, esquinaSuperiorDerecha,
+         esquinaInferiorIzquierda, esquinaInferiorDerecha, interseccionT, interseccionL,
+         interseccionR, interseccionCruz;
+
+    int anchoColumna = 5;  // Ancho de cada columna
+
+    if (borde == 0) {
+        // Bordes simples
+        horizontal = (char)196;
+        vertical = (char)179;
+        esquinaSuperiorIzquierda = (char)218;
+        esquinaSuperiorDerecha = (char)191;
+        esquinaInferiorIzquierda = (char)192;
+        esquinaInferiorDerecha = (char)217;
+        interseccionT = (char)194;  // Intersección de línea superior
+        interseccionL = (char)195;  // Intersección de línea izquierda
+        interseccionR = (char)180;  // Intersección de línea derecha
+        interseccionCruz = (char)197;  // Intersección de cruz
+    } else {
+        // Bordes dobles
+        horizontal = (char)205;
+        vertical = (char)186;
+        esquinaSuperiorIzquierda = (char)201;
+        esquinaSuperiorDerecha = (char)187;
+        esquinaInferiorIzquierda = (char)200;
+        esquinaInferiorDerecha = (char)188;
+        interseccionT = (char)203;
+        interseccionL = (char)204;
+        interseccionR = (char)185;
+        interseccionCruz = (char)206;
+    }
+
+    // Dibuja la tabla
+    for (int f = 0; f <= filas; f++) {
+        for (int c = 0; c <= columnas * anchoColumna; c++) {
+            // Calcula la posición actual
+            int posX = x1 + c;
+            int posY = y1 + f;
+            
+            gotoxy(posX, posY);
+
+            if (f == 0) {
+                if (c == 0) printf("%c", esquinaSuperiorIzquierda);
+                else if (c == columnas * anchoColumna) printf("%c", esquinaSuperiorDerecha);
+                else if (c % anchoColumna == 0) printf("%c", interseccionT);
+                else printf("%c", horizontal);
+            } else if (f == filas) {
+                if (c == 0) printf("%c", esquinaInferiorIzquierda);
+                else if (c == columnas * anchoColumna) printf("%c", esquinaInferiorDerecha);
+                else if (c % anchoColumna == 0) printf("%c", interseccionL);
+                else printf("%c", horizontal);
+            } else {
+                if (c == 0) printf("%c", interseccionL);
+                else if (c == columnas * anchoColumna) printf("%c", interseccionR);
+                else if (c % anchoColumna == 0) printf("%c", vertical);
+                else printf(" ");
+            }
+        }
+    }
+}
 
 #endif  // LIBRERIA_H
