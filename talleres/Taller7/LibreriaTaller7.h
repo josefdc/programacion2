@@ -31,18 +31,23 @@ void color(int c) {
  * de la consola al blanco.
  */
 void ListaColores() {
-    int totalColors = 256;
-    int colorsPerColumn = totalColors / 4;
+    for (int i = 0; i < 64; i++) {
+        gotoxy(1, i);
+        color(i);
+        printf("Color %d", i);
 
-    for (int i = 0; i < colorsPerColumn; i++) {
-        for (int j = 0; j < 4; j++) {
-            int currentColor = i + j * colorsPerColumn;
-            gotoxy(j * 20, i);
-            color(currentColor);
-            printf("Color %d", currentColor);
-        }
+        gotoxy(20, i);
+        color(i + 64);
+        printf("Color %d", i + 64);
+
+        gotoxy(40, i);
+        color(i + 128);
+        printf("Color %d", i + 128);
+
+        gotoxy(60, i);
+        color(i + 192);
+        printf("Color %d", i + 192);
     }
-
     color(7);  // Restablecer el color a blanco
 }
 
@@ -180,35 +185,35 @@ void cuadro(int x1, int y1, int x2, int y2, int borde) {
     printf("%c", esquinaInferiorDerecha);
 }
 
-/**
- * @brief Dibuja un cuadrado con relleno en la consola.
- * 
- * Esta función dibuja un cuadrado con un color de relleno especificado en la consola.
- * El borde del cuadrado se dibuja con líneas y el interior se rellena con el color 
- * proporcionado. Después de dibujar el cuadrado, se restaura el color original de la consola.
- * 
- * @param x1 Coordenada horizontal de la esquina superior izquierda del cuadrado.
- * @param y1 Coordenada vertical de la esquina superior izquierda del cuadrado.
- * @param x2 Coordenada horizontal de la esquina inferior derecha del cuadrado.
- * @param y2 Coordenada vertical de la esquina inferior derecha del cuadrado.
- * @param colorRelleno Código de color para el relleno del cuadrado.
- */
-void cuadroR(int x1, int y1, int x2, int y2, int colorRelleno) {
-    // Rellenar el interior del cuadrado con el color especificado
-    color(colorRelleno);
-    for (int y = y1 + 1; y < y2; y++) {
-        for (int x = x1 + 1; x < x2; x++) {
-            gotoxy(x, y);
-            printf(" ");  // Usar un espacio para rellenar
+    /**
+     * @brief Dibuja un cuadrado con relleno en la consola.
+     * 
+     * Esta función dibuja un cuadrado con un color de relleno especificado en la consola.
+     * El borde del cuadrado se dibuja con líneas y el interior se rellena con el color 
+     * proporcionado. Después de dibujar el cuadrado, se restaura el color original de la consola.
+     * 
+     * @param x1 Coordenada horizontal de la esquina superior izquierda del cuadrado.
+     * @param y1 Coordenada vertical de la esquina superior izquierda del cuadrado.
+     * @param x2 Coordenada horizontal de la esquina inferior derecha del cuadrado.
+     * @param y2 Coordenada vertical de la esquina inferior derecha del cuadrado.
+     * @param colorRelleno Código de color para el relleno del cuadrado.
+     */
+    void cuadroR(int x1, int y1, int x2, int y2, int colorRelleno) {
+        // Rellenar el interior del cuadrado con el color especificado
+        color(colorRelleno);
+        for (int y = y1 + 1; y < y2; y++) {
+            for (int x = x1 + 1; x < x2; x++) {
+                gotoxy(x, y);
+                printf(" ");  // Usar un espacio para rellenar
+            }
         }
-    }
-    
-    // Dibujar el borde del cuadrado por encima del relleno
-    cuadro(x1, y1, x2, y2, 0);  // Estoy asumiendo que deseas un borde simple para el cuadro con relleno
+        
+        // Dibujar el borde del cuadrado por encima del relleno
+        cuadro(x1, y1, x2, y2, 0); 
 
-    // Restaurar el color original (por ejemplo, blanco)
-    color(7);
-}
+        // Restaurar el color original (por ejemplo, blanco)
+        color(7);
+    }
 
 /**
  * @brief Dibuja una ventana con efecto de sombra en la consola.

@@ -89,6 +89,9 @@ void Menu()
 }
 
 //------------------------
+/**
+ * 1. Implementar un algoritmo que muestre los múltiplos de 7 entre 1 y 1000.
+*/
 void Multiplos7_mil()
 {
     int i = 1;

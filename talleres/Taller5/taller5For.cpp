@@ -178,33 +178,31 @@ void Perfecto()
 5. Leer dos números enteros por tecladoy determinar si éstos son números amigos(Dos números amigos son
  dos enteros positivos a y b tales que a es la suma de los divisores propios de b, y b es la suma
   de los divisores propios de a. la unidad se considera divisor propio, pero no lo es el mismo número).
+con for
 */
-void Amigos()
+void amigos()
 {
     int a, b;
     printf("Ingrese dos numeros: ");
     scanf("%d %d", &a, &b);
-    int i = 1;
-    int suma_a = 0;
-    int suma_b = 0;
-    do
+    int sumaA = 0;
+    int sumaB = 0;
+    int i;
+    for (i = 1; i < a; i++)
     {
         if (a % i == 0)
         {
-            suma_a = suma_a + i;
+            sumaA = sumaA + i;
         }
-        i++;
-    }while (i < a);
-    i = 1;
-    do
+    }
+    for (i = 1; i < b; i++)
     {
         if (b % i == 0)
         {
-            suma_b = suma_b + i;
+            sumaB = sumaB + i;
         }
-        i++;
-    }while (i < b);
-    if (suma_a == b && suma_b == a)
+    }
+    if (sumaA == b && sumaB == a)
     {
         printf("Son amigos\n");
     }
@@ -214,31 +212,32 @@ void Amigos()
     }
     system("pause");
 }
+
 /*
 6. Leer un número entero positivo n por teclado y mostrar por pantalla la secuencia de fibonacci con n
  terminos.(ejemplo: si se lee un 3 se debe mostrar la serie hasta el tercer número 1,1,2. Si se lee un 5,
   se debe mostrar la serie hasta el quinto número 1,1,2,3,5).
 Nota: la secuencia de fibonacci es: 1,1,2,3,5,8,13, 21. La secuencia inicia con 1,1 y el siguiente término es la suma de los dos anteriores.
+con for
 */
 void Fibonacci()
 {
     int n;
     printf("Ingrese un numero: ");
     scanf("%d", &n);
-    int i = 1;
+    int i;
     int a = 1;
     int b = 1;
-    int c = 0;
-    do
+    for (i = 1; i <= n; i++)
     {
         printf("%d\n", a);
-        c = a + b;
+        int c = a + b;
         a = b;
         b = c;
-        i++;
-    }while (i <= n);
+    }
     system("pause");
 }
+
 /*
 7. Leer un entero n por teclado y calcular su factorial, n!=1*2*3*4*....*n.
 */
@@ -254,7 +253,7 @@ void Factorial()
         factorial = factorial * i;
         i++;
     }while (i <= n);
-    printf("El factorial es: %d\n", factorial);
+    printf("El factorial de %d es %d\n", n, factorial);
     system("pause");
 }
 /*
@@ -263,56 +262,50 @@ implementar un algoritmo que diga cuantos numeros perfectos hay entre
 */
 void Perfectos()
 {
-    int i = 1;
-    int suma = 0;
+    int i;
     int perfectos = 0;
-    do
+    for (i = 1; i <= 10000; i++)
     {
-        int j = 1;
-        suma = 0;
-        do
+        int j;
+        int suma = 0;
+        for (j = 1; j < i; j++)
         {
             if (i % j == 0)
             {
                 suma = suma + j;
             }
-            j++;
-        }while (j < i);
+        }
         if (suma == i)
         {
             perfectos++;
         }
-        i++;
-    }while (i <= 10000);
-    printf("Hay %d numeros perfectos\n", perfectos);
+    }
+    printf("Hay %d numeros perfectos entre 1 y 10000\n", perfectos);
     system("pause");
 }
-
 /*
 Implementar un algoritmo que diga cuales numeros primos hay entre 1 y
 1000 (debe mostrar los numeros).
 */
 void rangoPrimos()
 {
-    int i = 1;
-    do
+    int i;
+    for (i = 1; i <= 1000; i++)
     {
-        int j = 1;
+        int j;
         int divisores = 0;
-        do
+        for (j = 1; j <= i; j++)
         {
             if (i % j == 0)
             {
                 divisores++;
             }
-            j++;
-        }while (j <= i);
+        }
         if (divisores == 2)
         {
             printf("%d\n", i);
         }
-        i++;
-    }while (i <= 1000);
+    }
     system("pause");
 }
 /*
@@ -327,37 +320,33 @@ Factorial de 4: 24
 
 void factoriales()
 {
-    int i = 0;
-    do 
+    int i;
+    for (i = 0; i <= 10; i++)
     {
-        int j = 1;
+        int j;
         int factorial = 1;
-        do
+        for (j = 1; j <= i; j++)
         {
             factorial = factorial * j;
-            j++;
-        }while (j <= i) ;
+        }
         printf("Factorial de %d: %d\n", i, factorial);
-        i++;
-    }while (i < 10);
+    }
     system("pause");
 }
 
 /*
-Implementar las tablas de multiplicar del 10 al 20.
+Implementar las tablas de multiplicar del 10 al 20 conn for
 */
 void tablas()
 {
-    int i = 10;
-    do
+    int i;
+    for (i = 10; i <= 20; i++)
     {
-        int j = 1;
-        do
+        int j;
+        for (j = 1; j <= 10; j++)
         {
             printf("%d x %d = %d\n", i, j, i * j);
-            j++;
-        }while (j <= 10);
-        i++;
-    }while (i <= 20);
+        }
+    }
     system("pause");
 }
