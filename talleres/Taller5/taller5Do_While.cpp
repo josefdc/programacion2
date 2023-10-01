@@ -1,3 +1,11 @@
+/*
+LINK DEL REPOSITORIO:
+
+https://github.com/josefdc/programacion2/tree/main/talleres
+
+*/
+
+
 #include <iostream>
 #include <cstdio>
 #include <cstdlib>

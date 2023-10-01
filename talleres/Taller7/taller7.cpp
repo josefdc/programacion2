@@ -7,6 +7,15 @@
  * diferentes opciones del menú para dibujar formas como cuadros.
  */
 
+/*
+LINK DEL REPOSITORIO:
+
+https://github.com/josefdc/programacion2/tree/main/talleres
+
+*/
+
+
+
 #include "LibreriaTaller7.h"
 #include <stdio.h>
 #include <windows.h>
