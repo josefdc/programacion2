@@ -198,22 +198,22 @@ void cuadro(int x1, int y1, int x2, int y2, int borde) {
      * @param y2 Coordenada vertical de la esquina inferior derecha del cuadrado.
      * @param colorRelleno Código de color para el relleno del cuadrado.
      */
-    void cuadroR(int x1, int y1, int x2, int y2, int colorRelleno) {
-        // Rellenar el interior del cuadrado con el color especificado
-        color(colorRelleno);
-        for (int y = y1 + 1; y < y2; y++) {
-            for (int x = x1 + 1; x < x2; x++) {
-                gotoxy(x, y);
-                printf(" ");  // Usar un espacio para rellenar
-            }
+void cuadroR(int x1, int y1, int x2, int y2, int colorRelleno) {
+    // Rellenar el interior del cuadrado con el color especificado
+    color(colorRelleno);
+    for (int y = y1 + 1; y < y2; y++) {
+        for (int x = x1 + 1; x < x2; x++) {
+            gotoxy(x, y);
+            printf("%c", 219);  //  ASCII 219 
         }
-        
-        // Dibujar el borde del cuadrado por encima del relleno
-        cuadro(x1, y1, x2, y2, 0); 
-
-        // Restaurar el color original (por ejemplo, blanco)
-        color(7);
     }
+    
+    // Dibujar el borde del cuadrado por encima del relleno
+    cuadro(x1, y1, x2, y2, 0); 
+
+    // Restaurar el color original (por ejemplo, blanco)
+    color(7);
+}
 
 /**
  * @brief Dibuja una ventana con efecto de sombra en la consola.
@@ -237,18 +237,19 @@ void ventana1(int x1, int y1, int x2, int y2, int colorFondo, int colorSombra) {
     color(colorSombra);
     for (int x = x1 + 1; x <= x2 + 1; x++) {
         gotoxy(x, y2 + 1);
-        printf(" ");
+        printf("%c", 178);  //  ASCII 178
     }
 
     // Dibujar la sombra en el lado derecho
     for (int y = y1 + 1; y <= y2 + 1; y++) {
         gotoxy(x2 + 1, y);
-        printf(" ");
+        printf("%c", 178);  //  ASCII 178 
     }
 
     // Restaurar el color original (por ejemplo, blanco)
     color(7);
 }
+
 
 /**
  * @brief Dibuja una ventana con una barra de título.
@@ -272,7 +273,7 @@ void ventana2(int x1, int y1, int x2, int y2, int colortitulo, int colorfondo, i
     color(colortitulo);
     for (int x = x1 + 1; x < x2; x++) {
         gotoxy(x, y1);
-        printf(" ");
+        printf("%c", 219);  // Using ASCII 219 for title bar
     }
     
     // Restaurar el color original
