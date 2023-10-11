@@ -208,3 +208,26 @@ void contarVocalesUsuario() {
     int resultado = contarVocales(cadena);
     cout << "La cadena tiene " << resultado << " vocales." << endl;
 }
+/*
+Hacer una función que reciba una cadena de caracteres y la invierta en
+ella misma
+*/
+
+string invertirCadena(char cadena[]) {
+    int longitud = 0;
+    while (cadena[longitud] != '\0') {
+        longitud++;
+    }
+
+    int inicio = 0;
+    int fin = longitud - 1;
+    while (inicio < fin) {
+        char temp = cadena[inicio];
+        cadena[inicio] = cadena[fin];
+        cadena[fin] = temp;
+        inicio++;
+        fin--;
+    }
+    
+    return cadena;
+}

@@ -39,5 +39,8 @@ void copiar(char destino[],  char origen[]) {
     destino[i] = '\0';  // Asegúrate de terminar la cadena destino con un carácter nulo
 }
 
+/*
+Hacer
+*/
 
 #endif  // Fin de la guardia de inclusión
