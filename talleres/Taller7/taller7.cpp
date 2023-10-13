@@ -45,13 +45,13 @@ int main(){
 int menu(){
     int opcion, x1, y1, x2, y2, borde, colorFondo, colorSombra;
     do {
-        system("cls");  ///< Clear the screen
-        gotoxy(0, 0);  ///< Position the cursor at the beginning
+        system("cls");  
+        gotoxy(0, 0);  
         
-        // Draw a shadowed window for the menu
+        
         ventana1(10, 2, 60, 20, 7, 8);
         
-        gotoxy(20, 4);  ///< Position the cursor at a suitable location
+        gotoxy(20, 4);  
         printf("Menu de opciones");
         
         gotoxy(15, 6);
