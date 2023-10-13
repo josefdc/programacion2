@@ -45,17 +45,40 @@ int main(){
 int menu(){
     int opcion, x1, y1, x2, y2, borde, colorFondo, colorSombra;
     do {
-        system("cls");  ///< Limpiar la pantalla
-        gotoxy(0, 0);  ///< Posicionar el cursor en el inicio
-        printf("Menu de opciones\n");
-        printf("1. Dibujo de cuadrado\n");
-        printf("2. Cuadrado con relleno\n");
-        printf("3. Dibujo de Ventana\n");
-        printf("4. Dibujo de Ventana con titulo\n");
-        printf("5. elebaracion de tablas\n");
-        printf("6. Mostrar tabla de códigos ASCII\n");
-        printf("7. Mostrar tabla de colores\n");
-        printf("8. Salir\n");
+        system("cls");  ///< Clear the screen
+        gotoxy(0, 0);  ///< Position the cursor at the beginning
+        
+        // Draw a shadowed window for the menu
+        ventana1(10, 2, 60, 20, 7, 8);
+        
+        gotoxy(20, 4);  ///< Position the cursor at a suitable location
+        printf("Menu de opciones");
+        
+        gotoxy(15, 6);
+        printf("1. Dibujo de cuadrado");
+        
+        gotoxy(15, 7);
+        printf("2. Cuadrado con relleno");
+        
+        gotoxy(15, 8);
+        printf("3. Dibujo de Ventana");
+        
+        gotoxy(15, 9);
+        printf("4. Dibujo de Ventana con titulo");
+        
+        gotoxy(15, 10);
+        printf("5. Elaboracion de tablas");
+        
+        gotoxy(15, 11);
+        printf("6. Mostrar tabla de codigos ASCII");
+        
+        gotoxy(15, 12);
+        printf("7. Mostrar tabla de colores");
+        
+        gotoxy(15, 13);
+        printf("8. Salir");
+        
+        gotoxy(15, 15);
         printf("Ingrese la opcion que desea: ");
         scanf("%d", &opcion);
         switch (opcion) {
