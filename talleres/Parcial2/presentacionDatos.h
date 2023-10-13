@@ -1,10 +1,19 @@
 #ifndef PRESENTACIONDATOS_H
 #define PRESENTACIONDATOS_H
 
-/*PUEDE ENCONTRAR EL PARCUAL EN EL REPOSITORIO 
+/*
+PUEDE ENCONTRAR EL PARCIAL EN EL REPOSITORIO 
 
+https://github.com/josefdc/programacion2/tree/main/talleres/Parcial2
 
 */
+
+/*====================================================================================
+ * Librería de funciones para presentación de datos en la consola.
+ * ===================================================================================*/
+
+
+
 
 #include <stdio.h>
 #include <windows.h>
