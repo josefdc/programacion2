@@ -13,7 +13,6 @@ Repositorio con ejercicios y programas desarrollados durante las clases de Progr
 
 Este repositorio fue creado con el propósito de proporcionar ejemplos prácticos y ejercicios para estudiantes de Programación 2. Cada archivo representa un tema o concepto específico cubierto en clase.
 
-![Ejemplo de programa en acción](URL_IMAGEN_EJEMPLO) *Nota: Reemplazar "URL_IMAGEN_EJEMPLO" con la URL de una imagen o GIF que muestre un programa en acción.*
 
 ## Instrucciones de Instalación y Ejecución
 
@@ -33,5 +32,5 @@ Si deseas contribuir a este repositorio, por favor crea un fork, realiza tus cam
 
 ## Licencia
 
-Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](URL_ARCHIVO_LICENCIA) para más detalles. *Nota: Reemplazar "URL_ARCHIVO_LICENCIA" con la URL del archivo de licencia si existe.*
+Este proyecto está bajo la licencia MIT para más detalles.
 
