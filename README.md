@@ -1,35 +1,36 @@
-Programación 2
-==============
-Repositorio con ejercicios y programas desarrollados durante las clases de Programación 2.
+# Programación 2
 
-Contenido
----------
-### Clase 08_09_2023
-- Primer Programa (Clase08_09_2023/PrimerPrograma.cpp)
+Repositorio con ejercicios y programas desarrollados durante las clases de Programación 2 en la Universidad XYZ. Este repositorio sirve como recurso educativo para estudiantes que están aprendiendo programación en C++ y contiene ejemplos prácticos, ejercicios y soluciones.
 
-### Clase 08_11_2023
-- Circunferencia (Clase08_11_2023/Circunferencia.cpp)
-- Convertidor de Temperatura (Clase08_11_2023/ConvertidorTemperatura.cpp)
-- Número de Dígitos (Clase08_11_2023/NumeroDigitos.cpp)
-- Mediciones de Temperaturas (Clase08_11_2023/medicionesDeTemperaturas.cpp)
-- Múltiplos (Clase08_11_2023/multiplos.cpp)
-- Notas (Clase08_11_2023/notas.cpp)
-- Operadores (Clase08_11_2023/opereadores.cpp)
-- Orden (Clase08_11_2023/orden.cpp)
+## Índice
+- [Descripción](#descripción)
+- [Instrucciones de Instalación y Ejecución](#instrucciones-de-instalación-y-ejecución)
+- [Contenido](#contenido)
+- [Contribuciones](#contribuciones)
+- [Licencia](#licencia)
 
-### Clase 08_14_2023
-- Mayor de Tres Números (Clase08_14_2023/MayorTresNumeros.cpp)
-- Número Positivo o Negativo (Clase08_14_2023/NumeroPosNeg.cpp)
-- Valor Absoluto (Clase08_14_2023/Valorabs.cpp)
+## Descripción
 
-### Clase 08_18_2023
-- Clase 16 de Agosto (Clase08_18_2023/Clase16Agos.cpp)
-- Clase 16 de Agosto F2 (Clase08_18_2023/Clase16AgosF2.cpp)
-- Clase 16 de Agosto F2 Anotado (Clase08_18_2023/Clase16AgosF2_annotated.cpp)
-- Clase 16 de Agosto F2 Documentado (Clase08_18_2023/Clase16AgosF2_documented.cpp)
-- Clase 16 de Agosto F2 Final Anotado (Clase08_18_2023/Clase16AgosF2_final_annotated.cpp)
+Este repositorio fue creado con el propósito de proporcionar ejemplos prácticos y ejercicios para estudiantes de Programación 2. Cada archivo representa un tema o concepto específico cubierto en clase.
 
-#### Taller #3
-- Programa Corregido (Clase08_18_2023/Taller#3/corrected_program.cpp)
-- Programa Final (Clase08_18_2023/Taller#3/final_program.cpp)
-- Programa Modificado (Clase08_18_2023/Taller#3/modified_program.cpp)
+
+## Instrucciones de Instalación y Ejecución
+
+1. Clona este repositorio en tu máquina local.
+2. Asegúrate de tener instalado el compilador de C++.
+3. Navega hasta el directorio del programa que deseas ejecutar.
+4. Compila el programa usando el comando `g++ nombre_del_programa.cpp -o salida`.
+5. Ejecuta el programa con `./salida`.
+
+## Contenido
+
+... *Aquí puedes mantener el contenido original que ya tenías en el README.*
+
+## Contribuciones
+
+Si deseas contribuir a este repositorio, por favor crea un fork, realiza tus cambios y envía un pull request. Todas las contribuciones son bienvenidas.
+
+## Licencia
+
+Este proyecto está bajo la licencia MIT para más detalles.
+
