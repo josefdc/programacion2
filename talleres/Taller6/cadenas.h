@@ -40,7 +40,16 @@ void copiar(char destino[],  char origen[]) {
 }
 
 /*
-Hacer
+Hacer una función que reciba un entero Ny devuelva una cadena de
+longitud N, leyendo por pantalla cada uno de los Ncaracteres de la
+cadena.
+*/
+
+
+/*
+ Haga una función que reciba una cadena de caracteres y un carácter,
+debe devolver la cadena con el caracter adicionado al final. Por ejemplo
+si la cadena inicial es "casa" y el caracter es ’s’, debe devolver "casas"
 */
 
 #endif  // Fin de la guardia de inclusión
