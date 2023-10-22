@@ -64,26 +64,6 @@ void leerCadena(int N, char cadena[]) {
 
 
 /*
- Haga una función que reciba una cadena de caracteres y un carácter,
-debe devolver la cadena con el caracter adicionado al final. Por ejemplo
-si la cadena inicial es "casa" y el caracter es ’s’, debe devolver "casas"
-*/
-/**
- * @brief Añade un carácter al final de una cadena.
- * 
- * @param cadena La cadena original.
- * @param caracter El carácter a añadir.
- */
-void agregarCaracter(char cadena[], char caracter) {
-    int i = 0;
-    while (cadena[i] != '\0') {
-        i++;
-    }
-    cadena[i] = caracter;
-    cadena[i+1] = '\0';  // Asegúrate de terminar la nueva cadena con un carácter nulo
-}
-
-/*
 Una función que reciba una cadena de caracteres y un carácter, y devuelva la cadena con el carácter adicionado al final.
 */
 /**
