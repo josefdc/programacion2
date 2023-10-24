@@ -16,7 +16,7 @@ int aleatorio(int n) {
     return rand() % n;
 }
 
-void mostrarPalabra(char palabra[], char adivinada[]) {
+void mostrarPalabra(char palabra[], char adivinada[-]) {
     int longitud = strlen(palabra);
     for (int i = 0; i < longitud; i++) {
         cout << adivinada[i] << " ";
