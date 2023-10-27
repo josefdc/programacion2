@@ -112,11 +112,11 @@ int main()
         bool letraEncontrada = false;
         
         // Recorre la palabra seleccionada para verificar si la letra ingresada está presente.
+    
         for (int i = 0; i < longitud; i++) 
         {
             // Si la letra coincide y no ha sido adivinada anteriormente, se actualiza P2.
-            if (P1[i] == letra && P2[i] == '_') 
-            {
+            if (P1[i] == letra && P2[i] == '_')
                 P2[i] = letra;
                 letraEncontrada = true;
             }

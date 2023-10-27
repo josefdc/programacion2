@@ -47,6 +47,13 @@ Hacer una función que reciba un entero Ny devuelva una cadena de
 longitud N, leyendo por pantalla cada uno de los Ncaracteres de la
 cadena.
 */
+void limpiarBuffer();
+// Función para limpiar el buffer
+void limpiarBuffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF) {}
+}
+
 /**
  * @brief Lee N caracteres desde la entrada y los almacena en una cadena.
  * 
@@ -55,11 +62,10 @@ cadena.
  */
 void leerCadena(int N, char cadena[]) {
     cout << "Introduce " << N << " caracteres: ";
-    for (int i = 0; i < N; i++) {
-        cin >> cadena[i];
-    }
-    cadena[N] = '\0';  // Asegúrate de terminar la cadena con un carácter nulo
+    cin.getline(cadena, N + 1);  // +1 para el carácter de terminación '\0'
+    limpiarBuffer();  // Limpia cualquier carácter adicional que el usuario haya ingresado
 }
+
 
 
 
@@ -78,7 +84,7 @@ void agregarCaracter(char cadena[], char caracter) {
         i++;
     }
     cadena[i] = caracter;
-    cadena[i+1] = '\0';  // Asegúrate de terminar la nueva cadena con un carácter nulo
+    cadena[i+1] = '\0';  
 }
 /*
 Una función que reciba una cadena de caracteres y la invierta en ella misma.
@@ -283,3 +289,4 @@ bool esSubcadena(char cadena[], char subcadena[]) {
 
 
 #endif  // Fin de la guardia de inclusión
+
