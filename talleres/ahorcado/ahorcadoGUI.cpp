@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <limits> // Inclusión necesaria para numeric_limits
-#include "Libreria.h"
+#include "presentacionDatos.h"
 
 using namespace std;
 
