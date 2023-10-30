@@ -11,6 +11,7 @@ struct Estudiantes {
 
 void adicionar(Estudiantes Est[], int n);
 void buscar(char Codigo[], Estudiantes E[], int n);
+void Listar(Estudiantes Est[], int n);
 
 int main() {
     int n;
@@ -24,7 +25,8 @@ int main() {
     printf("Ingrese el codigo del estudiante a buscar: ");
     fgets(Cod, sizeof(Cod), stdin);
     Cod[strcspn(Cod, "\n")] = 0; // Eliminar el '\n' al final
-    buscar(Cod, Est, n);
+    //buscar(Cod, Est, n);
+    Listar(Est, n);
 }
 
 void adicionar(Estudiantes Est[], int n) {
@@ -64,5 +66,12 @@ void buscar(char Codigo[], Estudiantes E[], int n) {
     }
     if (!encontrado) {
         printf("El codigo no existe\n");
+    }
+}
+void Listar (Estudiantes Est[], int n){
+    float promedio;
+    printf("Cod\tNombre\tNota1\tNota2\tNota3\tPromedio\n");
+    for (int i = 0; i < n; i++) {
+        printf("%s\t%s\t%.2f\t%.2f\t%.2f\t%.2f\n", Est[i].Cod, Est[i].Nombre, Est[i].Nota1, Est[i].Nota2, Est[i].Nota3, Est[i].Promedio);
     }
 }
