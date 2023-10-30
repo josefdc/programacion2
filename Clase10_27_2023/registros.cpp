@@ -68,10 +68,10 @@ void buscar(char Codigo[], Estudiantes E[], int n) {
         printf("El codigo no existe\n");
     }
 }
-void Listar (Estudiantes Est[], int n){
-    float promedio;
-    printf("Cod\tNombre\tNota1\tNota2\tNota3\tPromedio\n");
+void Listar(Estudiantes Est[], int n){
+    printf("%-5s %-25s %-6s %-6s %-6s %-9s\n", "Cod", "Nombre", "Nota1", "Nota2", "Nota3", "Promedio");
+    printf("--------------------------------------------------------------------------------\n");
     for (int i = 0; i < n; i++) {
-        printf("%s\t%s\t%.2f\t%.2f\t%.2f\t%.2f\n", Est[i].Cod, Est[i].Nombre, Est[i].Nota1, Est[i].Nota2, Est[i].Nota3, Est[i].Promedio);
+        printf("%-5s %-25s %-6.2f %-6.2f %-6.2f %-9.2f\n", Est[i].Cod, Est[i].Nombre, Est[i].Nota1, Est[i].Nota2, Est[i].Nota3, Est[i].Promedio);
     }
 }
