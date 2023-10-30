@@ -5,6 +5,10 @@
 #include <iostream>  // Para cin y cout
 #include <cctype>    // Para tolower
 #include <string>
+#include <ctype.h>
+#include <stdio.h>
+#include <string.h>
+#include <cstring>
 
 using namespace std;
 
@@ -287,6 +291,27 @@ bool esSubcadena(char cadena[], char subcadena[]) {
     return false;
 }
 
+/**
+ * @brief Normaliza una cadena para el chequeo de palíndromos.
+ * 
+ * @param cadena La cadena original.
+ * @return char* La cadena normalizada.
+ */
+void normalizarCadena(char cadena[]) {
+    int i, j = 0;
+    char temp;
+    int len = strlen(cadena); // Asumiendo que strlen() está disponible
+
+    for (i = 0; i < len; i++) {
+        // Convertir a minúscula y verificar si es alfabético
+        temp = tolower(cadena[i]);
+        if (isalpha(temp)) {
+            cadena[j++] = temp;
+        }
+    }
+    // Colocar el carácter nulo al final para terminar la cadena
+    cadena[j] = '\0';
+}
 
 #endif  // Fin de la guardia de inclusión
 

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cstdio>
 #include <cstdlib>
+#include <cstring>
 #include <locale>
 
 
@@ -110,16 +111,202 @@ void Menu()
                 char caracter;
                 printf("Ingrese una cadena de caracteres: \n");
                 fgets(cadena, sizeof(cadena), stdin);
-                if (cadena[longitud(cadena) - 1] == '\n') {
-                    cadena[longitud(cadena) - 1] = '\0';
+                if (cadena[strlen(cadena) - 1] == '\n') {
+                    cadena[strlen(cadena) - 1] = '\0';
                 }
+                limpiarBuffer();  // Limpia el buffer para asegurarse de que el siguiente getchar() no tome el ENTER anterior
                 printf("Ingrese un caracter: \n");
-                caracter = getchar(); 
+                caracter = getchar();  // Obtiene el carácter del usuario
                 agregarCaracter(cadena, caracter);
                 printf("La cadena con el caracter agregado es: %s\n", cadena);
-                pausa();    
+                limpiarBuffer();  // Limpia el buffer de nuevo por si acaso hay caracteres extra después de ingresar el caracter
+                pausa();  // Pausa para que el usuario pueda ver el resultado antes de continuar
             }
             break;
+        case 5:
+        {
+            char cadena[100];
+            printf("Ingrese una cadena de caracteres para invertirla: \n");
+            fgets(cadena, sizeof(cadena), stdin);
+            if (cadena[strlen(cadena) - 1] == '\n') {
+                cadena[strlen(cadena) - 1] = '\0';
+            }
+            limpiarBuffer();  // Limpia el buffer para asegurarse de que el siguiente getchar() no tome el ENTER anterior
+
+            invertirCadena(cadena);
+
+            printf("La cadena invertida es: %s\n", cadena);
+            pausa();  // Pausa para que el usuario pueda ver el resultado antes de continuar
+        }
+        break;
+        case 6:
+        {
+            char cadenaOriginal[100];
+            char cadenaInversa[100];
+            
+            printf("Ingrese una cadena de caracteres para invertirla en una nueva cadena: \n");
+            fgets(cadenaOriginal, sizeof(cadenaOriginal), stdin);
+            
+            // Eliminar el salto de línea al final si existe
+            if (cadenaOriginal[strlen(cadenaOriginal) - 1] == '\n') {
+                cadenaOriginal[strlen(cadenaOriginal) - 1] = '\0';
+            }
+            
+            // Invocar la función para crear una cadena invertida
+            cadenaInvertida(cadenaOriginal, cadenaInversa);
+
+            printf("La cadena original es: \"%s\"\n", cadenaOriginal);
+            printf("La cadena invertida es: \"%s\"\n", cadenaInversa);
+            pausa();  // Pausa para que el usuario pueda ver el resultado antes de continuar
+        }
+    break;
+
+        case 7:
+        {
+            char cadena1[100];
+            char cadena2[100];
+            char resultado[200]; // Asumimos que el resultado no superará los 200 caracteres
+            
+            printf("Ingrese la primera cadena: \n");
+            fgets(cadena1, sizeof(cadena1), stdin);
+            // Eliminar el salto de línea al final si existe
+            if (cadena1[strlen(cadena1) - 1] == '\n') {
+                cadena1[strlen(cadena1) - 1] = '\0';
+            }
+            
+            printf("Ingrese la segunda cadena: \n");
+            fgets(cadena2, sizeof(cadena2), stdin);
+            // Eliminar el salto de línea al final si existe
+            if (cadena2[strlen(cadena2) - 1] == '\n') {
+                cadena2[strlen(cadena2) - 1] = '\0';
+            }
+            
+            // Invocar la función concat
+            concat(cadena1, cadena2, resultado);
+
+            printf("La concatenación de las dos cadenas es: \"%s\"\n", resultado);
+            pausa();  // Pausa para que el usuario pueda ver el resultado antes de continuar
+        }
+        break;
+        case 8:
+        {
+            char cadena[100];
+            printf("Ingrese una cadena de caracteres para contar sus vocales: \n");
+            fgets(cadena, sizeof(cadena), stdin);
+            // Eliminar el salto de línea al final si existe
+            if (cadena[strlen(cadena) - 1] == '\n') {
+                cadena[strlen(cadena) - 1] = '\0';
+            }
+            
+            // Llama a la función contarVocales
+            int numVocales = contarVocales(cadena);
+            printf("La cantidad de vocales en la cadena es: %d\n", numVocales);
+            pausa();  // Pausa para que el usuario pueda ver el resultado antes de continuar
+        }
+        break;
+        
+        case 9:
+    {
+        char cadenaOriginal[100];
+        char cadenaSinVocales[100];
+        printf("Ingrese una cadena de caracteres para eliminar sus vocales: \n");
+        fgets(cadenaOriginal, sizeof(cadenaOriginal), stdin);
+        // Eliminar el salto de línea al final si existe
+        if (cadenaOriginal[strlen(cadenaOriginal) - 1] == '\n') {
+            cadenaOriginal[strlen(cadenaOriginal) - 1] = '\0';
+        }
+
+        // Llama a la función eliminarVocales
+        eliminarVocales(cadenaOriginal, cadenaSinVocales);
+        printf("La cadena sin vocales es: %s\n", cadenaSinVocales);
+        pausa();  // Pausa para que el usuario pueda ver el resultado antes de continuar
+    }
+    break;
+        case 10:
+    {
+        char cadenaNumerica[100];
+        printf("Ingrese una cadena de caracteres numéricos para convertir a entero: \n");
+        fgets(cadenaNumerica, sizeof(cadenaNumerica), stdin);
+        // Eliminar el salto de línea al final si existe
+        if (cadenaNumerica[strlen(cadenaNumerica) - 1] == '\n') {
+            cadenaNumerica[strlen(cadenaNumerica) - 1] = '\0';
+        }
+
+        // Llama a la función cadenaANumero
+        int numero = cadenaANumero(cadenaNumerica);
+        printf("El número representado por la cadena es: %d\n", numero);
+        pausa();  // Pausa para que el usuario pueda ver el resultado antes de continuar
+    }
+    break;
+    case 11:
+    {
+        char cadena[100];
+        printf("Ingrese una cadena para verificar si es un palíndromo: \n");
+        fgets(cadena, sizeof(cadena), stdin);
+        // Eliminar el salto de línea al final si existe
+        if (cadena[strlen(cadena) - 1] == '\n') {
+            cadena[strlen(cadena) - 1] = '\0';
+        }
+
+        // Convertir a minúsculas y eliminar espacios y signos de puntuación si se requiere
+     
+        normalizarCadena(cadena);
+
+        bool palindrome = esPalindromo(cadena);
+        if (palindrome) {
+            printf("La cadena ingresada es un palíndromo.\n");
+        } else {
+            printf("La cadena ingresada no es un palíndromo.\n");
+        }
+        pausa();  // Pausa para que el usuario pueda ver el resultado antes de continuar
+    }
+    break;
+        case 12:
+        {
+            char cadena1[100];
+            char cadena2[100];
+
+            printf("Ingrese la primera cadena: \n");
+            fgets(cadena1, sizeof(cadena1), stdin);
+            cadena1[strcspn(cadena1, "\n")] = 0; // Elimina el salto de línea
+
+            printf("Ingrese la segunda cadena: \n");
+            fgets(cadena2, sizeof(cadena2), stdin);
+            cadena2[strcspn(cadena2, "\n")] = 0; // Elimina el salto de línea
+
+            bool iguales = cadenasIguales(cadena1, cadena2);
+            if (iguales) {
+                printf("Las cadenas son iguales.\n");
+            } else {
+                printf("Las cadenas no son iguales.\n");
+            }
+            pausa();  // Espera a que el usuario presione ENTER
+        }
+    break;
+        case 13:
+{
+    char cadena[100];
+    char subcadena[100];
+
+    printf("Ingrese la cadena principal: \n");
+    fgets(cadena, sizeof(cadena), stdin);
+    cadena[strcspn(cadena, "\n")] = 0; // Elimina el salto de línea
+
+    printf("Ingrese la subcadena a buscar: \n");
+    fgets(subcadena, sizeof(subcadena), stdin);
+    subcadena[strcspn(subcadena, "\n")] = 0; // Elimina el salto de línea
+
+    bool contiene = esSubcadena(cadena, subcadena);
+    if (contiene) {
+        printf("La subcadena está contenida en la cadena.\n");
+    } else {
+        printf("La subcadena no está contenida en la cadena.\n");
+    }
+    pausa();  // Espera a que el usuario presione ENTER
+}
+break;
+
+
 
 
         case 15:
@@ -132,6 +319,6 @@ void Menu()
 }
 
 void pausa() {
-    printf("\nPresione ENTER para continuar...");
-    getchar();
+    printf("Presione ENTER para continuar...\n");
+    while (getchar() != '\n');  // Esperar a que el usuario presione ENTER
 }
