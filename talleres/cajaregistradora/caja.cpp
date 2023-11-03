@@ -1,8 +1,32 @@
+/**
+ * @file caja.cpp
+ * @brief Sistema de gestión para Recibos de Caja Menor.
+ *
+ * Este programa permite capturar, consultar, listar y modificar los recibos de caja menor.
+ */
+
 #include <iostream>
 #include <string.h>
 #include <stdio.h>
 
 // Definición de la estructura ReciboCajaMenor
+/**
+ * @struct ReciboCajaMenor
+ * @brief Estructura para almacenar la información de un recibo de caja menor.
+ *
+ * @var ReciboCajaMenor::numero
+ * Número identificador del recibo.
+ * @var ReciboCajaMenor::ciudad
+ * Ciudad en la que se emite el recibo.
+ * @var ReciboCajaMenor::fecha
+ * Fecha de emisión del recibo en formato DD/MM/AAAA.
+ * @var ReciboCajaMenor::pagadoA
+ * Persona a la que se le ha hecho el pago.
+ * @var ReciboCajaMenor::valor
+ * Cantidad de dinero que se ha pagado.
+ * @var ReciboCajaMenor::concepto
+ * Descripción o concepto del pago realizado.
+ */
 struct ReciboCajaMenor {
     int numero;
     char ciudad[50];
@@ -73,7 +97,11 @@ void mostrarMenu() {
     printf("Ingrese una opcion: ");
 }
 
-// Implementar la función capturarDocumento
+/**
+ * @brief Captura los datos de un nuevo recibo de caja menor y lo almacena en el array.
+ * @param recibos Array de recibos de caja menor.
+ * @param contador Referencia al contador actual de recibos.
+ */
 void capturarDocumento(ReciboCajaMenor recibos[], int &contador) {
     // Se pide al usuario que ingrese los datos del recibo
     printf("\nIngrese los datos del recibo de caja menor:\n");
@@ -94,7 +122,11 @@ void capturarDocumento(ReciboCajaMenor recibos[], int &contador) {
     printf("Documento capturado exitosamente.\n");
 }
 
-// Implementar la función consultarDocumento
+/**
+ * @brief Consulta un recibo por su número y muestra su información.
+ * @param recibos Array de recibos de caja menor.
+ * @param contador Número actual de recibos almacenados.
+ */
 void consultarDocumento(ReciboCajaMenor recibos[], int contador) {
     int numero;
     printf("\nIngrese el número de documento a consultar: ");
@@ -115,7 +147,11 @@ void consultarDocumento(ReciboCajaMenor recibos[], int contador) {
     printf("Documento no encontrado.\n");
 }
 
-// Implementar la función listarDocumentos
+/**
+ * @brief Lista todos los recibos de caja menor capturados.
+ * @param recibos Array de recibos de caja menor.
+ * @param contador Número actual de recibos almacenados.
+ */
 void listarDocumentos(ReciboCajaMenor recibos[], int contador) {
     float total = 0.0;
     printf("\nListado de Recibos de Caja Menor:\n");
@@ -127,7 +163,11 @@ void listarDocumentos(ReciboCajaMenor recibos[], int contador) {
     printf("Total de valores: %.2f\n", total);
 }
 
-// Implementar la función modificarDocumento
+/**
+ * @brief Permite modificar el valor y concepto de un recibo existente.
+ * @param recibos Array de recibos de caja menor.
+ * @param contador Número actual de recibos almacenados.
+ */
 void modificarDocumento(ReciboCajaMenor recibos[], int contador) {
     int numero;
     printf("\nIngrese el número de documento a modificar: ");
@@ -147,7 +187,11 @@ void modificarDocumento(ReciboCajaMenor recibos[], int contador) {
     printf("Documento no encontrado.\n");
 }
 
-// Función ficticia para mostrar el valor en letras (implementación simple y no funcional)
+/**
+ * @brief Simula la conversión de un valor numérico a su representación en letras.
+ * @note Esta función es un placeholder y no realiza una conversión real.
+ * @param valor Valor numérico a convertir.
+ */
 void valorEnLetras(float valor) {
     // En una implementación real, esta función convertiría el valor numérico a su equivalente en letras
     printf("El valor en letras es: [valor en letras no implementado]\n");
