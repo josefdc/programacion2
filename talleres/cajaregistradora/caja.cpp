@@ -44,7 +44,6 @@ void capturarDocumento(ReciboCajaMenor recibos[], int &contador);
 void consultarDocumento(ReciboCajaMenor recibos[], int contador);
 void listarDocumentos(ReciboCajaMenor recibos[], int contador);
 void modificarDocumento(ReciboCajaMenor recibos[], int contador);
-void valorEnLetras(float valor); // Función que simula la conversión de números a letras
 void mostrarMenu();
 
 // Array global para almacenar los recibos
@@ -187,12 +186,3 @@ void modificarDocumento(ReciboCajaMenor recibos[], int contador) {
     printf("Documento no encontrado.\n");
 }
 
-/**
- * @brief Simula la conversión de un valor numérico a su representación en letras.
- * @note Esta función es un placeholder y no realiza una conversión real.
- * @param valor Valor numérico a convertir.
- */
-void valorEnLetras(float valor) {
-    // En una implementación real, esta función convertiría el valor numérico a su equivalente en letras
-    printf("El valor en letras es: [valor en letras no implementado]\n");
-}
