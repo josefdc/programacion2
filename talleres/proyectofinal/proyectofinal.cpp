@@ -1,0 +1,131 @@
+#include <iostream>
+#include <vector>
+
+// Estructura para almacenar la información de la cuenta
+struct Cuenta {
+    int numeroCuenta;
+    int nip;
+    double saldo;
+};
+
+// Variables globales
+const int CAPACIDAD_BILLETES = 500;
+int billetesDisponibles = CAPACIDAD_BILLETES;
+std::vector<Cuenta> cuentas; // Base de datos de cuentas
+
+// Declaración de funciones
+void mostrarBienvenida();
+void ejecutarATM();
+int autenticarUsuario();
+void mostrarMenuPrincipal(int numeroCuenta);
+void realizarTransaccion(int opcion, int numeroCuenta);
+void consultarSaldo(int numeroCuenta);
+void realizarRetiro(int numeroCuenta);
+void realizarDeposito(int numeroCuenta);
+
+// Función principal
+int main() {
+    mostrarBienvenida();
+    ejecutarATM();
+    return 0;
+}
+
+// Implementación de funciones
+void mostrarBienvenida() {
+    printf("Bienvenido al ATM\n");
+}
+
+void ejecutarATM() {
+    while (true) {
+        int numeroCuenta = autenticarUsuario();
+        mostrarMenuPrincipal(numeroCuenta);
+    }
+}
+
+int autenticarUsuario() {
+    int numeroCuenta, nip;
+    printf("Ingrese su número de cuenta: ");
+    scanf("%d", &numeroCuenta);
+    printf("Ingrese su NIP: ");
+    scanf("%d", &nip);
+
+    for (const Cuenta& cuenta : cuentas) {
+        if (cuenta.numeroCuenta == numeroCuenta && cuenta.nip == nip) {
+            return numeroCuenta;
+        }
+    }
+    printf("Número de cuenta o NIP incorrecto. Intente de nuevo.\n");
+    return autenticarUsuario(); // Repetir hasta ingresar datos válidos
+}
+
+void mostrarMenuPrincipal(int numeroCuenta) {
+    int opcion;
+    printf("1. Consultar Saldo\n2. Retirar Efectivo\n3. Depositar Fondos\n4. Salir\nIngrese una opción: ");
+    scanf("%d", &opcion);
+    realizarTransaccion(opcion, numeroCuenta);
+}
+
+void realizarTransaccion(int opcion, int numeroCuenta) {
+    switch (opcion) {
+        case 1:
+            consultarSaldo(numeroCuenta);
+            break;
+        case 2:
+            realizarRetiro(numeroCuenta);
+            break;
+        case 3:
+            realizarDeposito(numeroCuenta);
+            break;
+        case 4:
+            printf("Gracias por usar el ATM\n");
+            exit(0);
+        default:
+            printf("Opción no válida\n");
+    }
+}
+
+void consultarSaldo(int numeroCuenta) {
+    for (const Cuenta& cuenta : cuentas) {
+        if (cuenta.numeroCuenta == numeroCuenta) {
+            printf("El saldo de su cuenta es: $%.2f\n", cuenta.saldo);
+            return;
+        }
+    }
+    printf("Cuenta no encontrada.\n");
+}
+
+void realizarRetiro(int numeroCuenta) {
+    double monto;
+    printf("Ingrese el monto a retirar: ");
+    scanf("%lf", &monto);
+
+    for (Cuenta& cuenta : cuentas) {
+        if (cuenta.numeroCuenta == numeroCuenta) {
+            if (cuenta.saldo >= monto && billetesDisponibles >= (monto / 20)) {
+                cuenta.saldo -= monto;
+                billetesDisponibles -= (monto / 20);
+                printf("Retiro exitoso. Por favor tome su dinero.\n");
+            } else {
+                printf("Saldo insuficiente o billetes no disponibles.\n");
+            }
+            return;
+        }
+    }
+    printf("Cuenta no encontrada.\n");
+}
+
+
+void realizarDeposito(int numeroCuenta) {
+    double monto;
+    printf("Ingrese el monto a depositar: ");
+    scanf("%lf", &monto);
+
+    for (Cuenta& cuenta : cuentas) {
+        if (cuenta.numeroCuenta == numeroCuenta) {
+            cuenta.saldo += monto;
+            printf("Depósito exitoso.\n");
+            return;
+        }
+    }
+    printf("Cuenta no encontrada.\n");
+}
