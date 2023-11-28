@@ -6,7 +6,10 @@
 #include "Libreria.h"
 using namespace std;
 
-// Estructura para almacenar la información de la cuenta
+/**
+ * @struct Cuenta
+ * @brief Estructura para almacenar la información de una cuenta de usuario en el ATM.
+ */
 struct Cuenta {
     int numeroCuenta;
     int nip;
@@ -14,11 +17,12 @@ struct Cuenta {
 };
 
 // Variables globales
-int n=5;
-const int CAPACIDAD_BILLETES = 500;
-int billetesDisponibles = CAPACIDAD_BILLETES;
-Cuenta c[5];
-char cadena[20];
+int n = 5; ///< Número de cuentas disponibles en el sistema.
+const int CAPACIDAD_BILLETES = 500; ///< Capacidad máxima de billetes en el ATM.
+int billetesDisponibles = CAPACIDAD_BILLETES; ///< Billetes disponibles actualmente en el ATM.
+Cuenta c[5]; ///< Array de cuentas de usuario.
+char cadena[20]; ///< Cadena auxiliar para operaciones de lectura.
+
 
 // Declaración de funciones
 void mostrarBienvenida();
@@ -32,8 +36,10 @@ void realizarDeposito(int numeroCuenta);
 void leerarchivo();
 void DibujarCajero();
 void DibujarPantalla();
-
-// Función principal
+/**
+ * @brief Función principal que ejecuta el programa del ATM.
+ * @return int Código de salida del programa.
+ */
 int main() 
 {
     leerarchivo();
@@ -42,19 +48,26 @@ int main()
     return 0;
 }
 
-// Implementación de funciones
+/**
+ * @brief Muestra la pantalla de bienvenida del ATM.
+ */
 void mostrarBienvenida() 
 {
     DibujarCajero();
 }
-
+/**
+ * @brief Ejecuta el bucle principal del ATM.
+ */
 void ejecutarATM() {
     while (true) {
         int numeroCuenta = autenticarUsuario();
         mostrarMenuPrincipal(numeroCuenta);
     }
 }
-
+/**
+ * @brief Autentica al usuario pidiéndole su número de cuenta y NIP.
+ * @return int Número de cuenta del usuario autenticado.
+ */
 int autenticarUsuario() 
 {
     int numeroCuenta, nip;
@@ -74,7 +87,10 @@ int autenticarUsuario()
     system("cls");
     return numeroCuenta;
 }
-
+/**
+ * @brief Muestra el menú principal y procesa la opción seleccionada por el usuario.
+ * @param numeroCuenta Número de cuenta del usuario.
+ */
 void mostrarMenuPrincipal(int numeroCuenta)
 {
     system("cls"); 
@@ -112,7 +128,11 @@ void mostrarMenuPrincipal(int numeroCuenta)
     scanf("%d", &opcion);
     realizarTransaccion(opcion, numeroCuenta);
 }
-
+/**
+ * @brief Ejecuta la transacción seleccionada por el usuario.
+ * @param opcion Opción de transacción elegida por el usuario.
+ * @param numeroCuenta Número de cuenta del usuario.
+ */
 void realizarTransaccion(int opcion, int numeroCuenta)
 {
     switch (opcion) 
@@ -146,7 +166,10 @@ void realizarTransaccion(int opcion, int numeroCuenta)
             mostrarBienvenida();
     }
 }
-
+/**
+ * @brief Consulta y muestra el saldo de la cuenta especificada.
+ * @param numeroCuenta Número de cuenta para consultar saldo.
+ */
 void consultarSaldo(int numeroCuenta)
 {
     for (int i=0;i<n;i++)
@@ -163,7 +186,10 @@ void consultarSaldo(int numeroCuenta)
     system("pause");
     system("cls");
 }
-
+/**
+ * @brief Realiza un retiro de la cuenta especificada.
+ * @param numeroCuenta Número de cuenta para realizar el retiro.
+ */
 void realizarRetiro(int numeroCuenta)
 {
     double monto;
@@ -194,7 +220,11 @@ void realizarRetiro(int numeroCuenta)
     system("pause");
     system("cls");
 }
-//---------------------------------------------------------------------------------------------------------
+
+/**
+ * @brief Realiza un depósito en la cuenta especificada.
+ * @param numeroCuenta Número de cuenta para realizar el depósito.
+ */
 void realizarDeposito(int numeroCuenta) 
 {
     double monto;
@@ -215,7 +245,9 @@ void realizarDeposito(int numeroCuenta)
     system("pause");
     system("cls");
 }
-//---------------------------------------------------------------------------------------------------------
+/**
+ * @brief Lee la información de las cuentas de un archivo.
+ */
 void leerarchivo()
 {
 	//ifstream permite trabajar el archivo en modo de lectura
@@ -246,7 +278,9 @@ void leerarchivo()
 		
 	}
 }
-//---------------------------------------------------------------------------------------------------------
+/**
+ * @brief Dibuja la interfaz del cajero automático.
+ */
 void DibujarCajero()
 {
 	system("cls"); 
@@ -273,6 +307,9 @@ void DibujarCajero()
     gotoxy(2,0);
     printf("Bienvenido!\n");
 }
+/**
+ * @brief Dibuja la pantalla de operaciones del cajero automático.
+ */
 void DibujarPantalla()
 {
     system("cls"); 
